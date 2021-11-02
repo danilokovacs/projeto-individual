@@ -71,9 +71,6 @@ body {
     align-items: center;
     justify-content: space-between;
 }
-.banner h1{
-    margin: 0;
-}
 
 .banner .left-container{
     width: 40vw;
@@ -85,6 +82,17 @@ body {
     justify-content: center;
     float: left;
 }
+
+.banner .left-container h1{
+    margin: 0;
+    font-size: 3em;
+}
+
+
+.banner .left-container p{
+    font-size: 1.4em;
+}
+
 
 .banner .right-container{
     width: 50%;
@@ -116,7 +124,12 @@ body {
 
 /* TEXTO SOBRE O AUTOR */
 .banner .card h1{
-    padding: 40px;
+    padding: 20px;
+    color: #e50914;
+}
+
+.banner .card h2{
+    padding: 30px;
 }
 
 .banner .card:hover{
