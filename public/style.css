@@ -122,6 +122,17 @@ body {
     transition-duration: 0.5s;
 }
 
+#btn_voltar{
+    width: 40px;
+    margin-bottom: 50px;
+    transform: scale(0.9);
+    transition-duration: 0.5s;
+}
+
+#btn_voltar:hover{
+    transform: scale(1);
+}
+
 /* TEXTO SOBRE O AUTOR */
 .banner .card h1{
     padding: 20px;

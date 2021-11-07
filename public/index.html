@@ -22,8 +22,9 @@
         <div class="banner">
             <div class="container">
                 <div class="left-container">
-                    <h1>Este site foi criado para quem é amante da sétima arte!</h1>
-                    <p>Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.</p>
+                    <img id="btn_voltar" style="display: none;" onclick="voltar()" src="./assets/cross.png">
+                    <h1 id="titulo">Este site foi criado para quem é amante da sétima arte!</h1>
+                    <p id="paragrafo">Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.</p>
                 </div>    
 
                 <div class="right-container">
@@ -38,8 +39,8 @@
         <div class="boxes">
             <div class="container">
                 <h1>Minhas recomendações:</h1>
-                <img src="./assets/cards/black_mirror.jpg" alt="Black Mirror">
-                <img src="./assets/cards/ilhadomedo.webp" alt="Ilha do Medo">
+                <img onclick="black_mirror()" src="./assets/cards/black_mirror.jpg" alt="Black Mirror">
+                <img onclick="ilhadomedo()" src="./assets/cards/ilhadomedo.webp" alt="Ilha do Medo">
                 <img src="./assets/cards/round6.jpg" alt="Round 6">
                 <img src="./assets/cards/poço.jpg" alt="O Poço">
                 <img src="./assets/cards/skins.jpg" alt="Skins">
@@ -61,6 +62,7 @@
 </body>
 </html>
 <script>
+    var lorem = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi voluptate voluptas reiciendis recusandae fugit ullam voluptatum maxime deleniti vel debitis explicabo at?Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi voluptate voluptas reiciendis recusandae fugit ullam voluptatum maxime deleniti vel debitis explicabo at?Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi voluptate voluptas reiciendis recusandae fugit ullam voluptatum maxime deleniti vel debitis explicabo at?Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi voluptate voluptas reiciendis recusandae fugit ullam voluptatum maxime deleniti vel debitis explicabo at?`
     function show(){
         cardboard.style.display = 'block';
         popcorn.style.display = 'none';
@@ -69,5 +71,26 @@
     function show_pop(){
         cardboard.style.display = 'none';
         popcorn.style.display = 'block';
+    }
+
+    function black_mirror(){
+        titulo.innerHTML = "Black Mirror, uma série sobre o futuro!";
+        paragrafo.innerHTML = `Contos de ficção científica que refletem o lado negro das telas e da tecnologia, mostrando que nem toda novidade traz só benefícios, essa é a série Black Mirror.<br>Genero: Suspense<br>
+        ${lorem}`;
+        popcorn.src = "./assets/imgs/Blackmirrorlogo.jpg";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    function ilhadomedo(){
+        titulo.innerHTML = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi `;
+        paragrafo.innerHTML = `${lorem}`;
+        popcorn.src = "";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    function voltar(){
+        window.location = "index.html";
     }
 </script>
