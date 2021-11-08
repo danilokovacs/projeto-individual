@@ -135,12 +135,13 @@ body {
 
 /* TEXTO SOBRE O AUTOR */
 .banner .card h1{
-    padding: 20px;
+    display: flex;
+    justify-content: center;
     color: #e50914;
 }
 
-.banner .card h2{
-    padding: 30px;
+.banner .card h3{
+    padding: 20px;
 }
 
 .banner .card:hover{
