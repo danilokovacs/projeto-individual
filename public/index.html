@@ -30,11 +30,14 @@
                 <div class="right-container">
                     <div id="cardboard" onclick="show_pop()" class="card" style="display: none;">
                         <h1>Sobre o autor:</h1>
-                        <h3>Danilo é um amante da sétima arte desde pequeno, seu primeiro contato com filmes e séries se iniciou por meio da televisão, provavelmente assistindo sessão da tarde ou algum outro canal aberto.
-                        A presença de uma filmadora na sua vida veio aos 6 anos, assim, registrando momentos da sua vida e se apaixonando cada vez mais pelo audiovisual. <br> <br>
-                        Teve seu momento "youtuber", gravando videos de jogos e editando, tendo que aprender sozinho com tutoriais no youtube. <br><br>
+                        <p>Danilo é um amante da sétima arte desde pequeno, seu primeiro contato com filmes e séries se iniciou por meio da televisão, provavelmente assistindo sessão da tarde ou algum outro canal aberto.
+                        <br><br>
+                        A presença de uma filmadora na sua vida veio aos 6 anos, assim, registrando momentos da sua vida e se apaixonando cada vez mais pelo audiovisual. 
+                        <br><br>
+                        Teve seu momento "youtuber", gravando videos de jogos e editando, tendo que aprender sozinho com tutoriais no youtube. 
+                        <br><br>
                         Até começou a cursar Produção Audiovisual na Universidade de São Caetano, mas acabou tendo que trancar o curso com a vinda da pandemia, mas pelo menos acabou se descobrindo na programação com a pesquisa e testes de vocação
-                        </h3>
+                        </p>
                          
                         
                     </div>
@@ -68,7 +71,6 @@
 </body>
 </html>
 <script>
-    var lorem = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi voluptate voluptas reiciendis recusandae fugit ullam voluptatum maxime deleniti vel debitis explicabo at?Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi voluptate voluptas reiciendis recusandae fugit ullam voluptatum maxime deleniti vel debitis explicabo at?Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi voluptate voluptas reiciendis recusandae fugit ullam voluptatum maxime deleniti vel debitis explicabo at?Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi voluptate voluptas reiciendis recusandae fugit ullam voluptatum maxime deleniti vel debitis explicabo at?`
     
     function show(){
         cardboard.style.display = 'block';
@@ -82,17 +84,52 @@
 
     function black_mirror(){
         titulo.innerHTML = "Black Mirror, uma série sobre o futuro!";
-        paragrafo.innerHTML = `Contos de ficção científica que refletem o lado negro das telas e da tecnologia, mostrando que nem toda novidade traz só benefícios, essa é a série Black Mirror.<br>Genero: Suspense<br>
-        ${lorem}`;
+        paragrafo.innerHTML = `
+        Contos de ficção científica mostrando que nem toda novidade traz só benefícios e as consequências das tecnologias que não estão tão longe de estarem presentes em nossa vida.
+        <br>
+        <span style="color:red">
+            Genero:
+        </span> 
+            
+        Distopia, Suspense, Ficção Científica
+        <br>
+        <span style="color:red">
+            Episódio que recomendo:
+        </span> 
+            <a style="text-decoration:none;color:white" href="https://www.netflix.com/watch/80104627?">
+                QUEDA LIVRE
+            </a><br>
+
+        Este episódio retrata uma realidade onde notas são atribuídas as pessoas de acordo com os comportamentos delas, isto me lembra muito do Instagram, onde as pessoas fingem que são perfeitas, mas a realidade por trás ninguém sabe, este episódio bate muito com meu valor de
+
+        <span style="color:red">
+            RESPEITO E HUMILDADE
+        </span> 
+        
+        ja que as pessoas tratam as outras olhando a nota que a pessoa tem. `;
         popcorn.src = "./assets/imgs/Blackmirrorlogo.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
     }
 
     function ilhadomedo(){
-        titulo.innerHTML = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sequi dicta quidem architecto, natus minus quos quasi `;
-        paragrafo.innerHTML = `${lorem}`;
-        popcorn.src = "";
+        titulo.innerHTML = `Ilha do medo, um filme de suspense com uma grande reviravolta!`;
+        paragrafo.innerHTML = `Detetives são convocados para investigar o improvável desaparecimento de uma criminosa do impenetrável Hospital psiquiátrico Ashecliffe que reside em uma ilha.
+        <br>
+        <span style="color:red">
+            Genero:
+        </span> 
+            
+        Suspense, Mistério, Thriller
+        <br>
+
+        Este filme retrata de um detetive com um passado de guerras,
+        
+        <span style="color:red">
+            VALOR
+        </span> 
+        `;
+        popcorn.src = "./assets/imgs/Ilhadomedo.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
     }
