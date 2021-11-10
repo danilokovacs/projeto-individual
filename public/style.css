@@ -73,7 +73,7 @@ body {
 }
 
 .banner .left-container{
-    width: 40vw;
+    width: 50vw;
     height: 60vh;
     text-align: justify;
     font-size: 0.8rem;
@@ -98,12 +98,13 @@ body {
 
 
 .banner .right-container{
-    width: 50%;
+    width: 45%;
     height: 100%;
     float: right;
     display: flex;
     align-items: center;
     overflow: hidden;
+    justify-content: center;
 }
 
 .banner .right-container .card p{
@@ -113,7 +114,6 @@ body {
 #popcorn{
     transform: scale(0.9);
     transition-duration: 0.5s;
-    margin-left: 100px;
     width: 50%;
 }
 
