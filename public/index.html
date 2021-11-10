@@ -9,6 +9,7 @@
     <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- Header -->
         <div class="header">
             <div class="container">
                 <h1>Danflix</h1>
@@ -19,6 +20,7 @@
                     </ul>
             </div>
         </div>
+        <!-- Banner com Informações ao lado esq e dir -->
         <div class="banner">
             <div class="container">
                 <div class="left-container">
@@ -40,13 +42,13 @@
                         <br><br>
                         Até começou a cursar Produção Audiovisual na Universidade de São Caetano, mas acabou tendo que trancar o curso com a vinda da pandemia, mas pelo menos acabou se descobrindo na programação com a pesquisa e testes de vocação
                         </p>
-                         
-                        
                     </div>
                     <img id="popcorn" onclick="show()" src="./assets/header/vet_pop.png" alt="">
                 </div>
             </div>
         </div>
+
+        <!-- Caixas com as imagens e funções -->
         <div class="boxes">
             <div class="container">
                 <h1>Minhas recomendações:</h1>
@@ -62,6 +64,8 @@
                 <img onclick="rick_morty()" src="./assets/cards/rick_and_morty.webp" alt="Rick And Morty">
             </div>
         </div>
+
+        <!-- Footer -->
         <div class="footer">
             <div class="container">
                 <a href="https://github.com/danilokovacs">
@@ -73,7 +77,7 @@
 </body>
 </html>
 <script>
-    
+    // COMEÇO -- FUNÇÕES PARA MOSTRAR SOBRE O AUTOR
     function show(){
         cardboard.style.display = 'block';
         popcorn.style.display = 'none';
@@ -83,59 +87,49 @@
         cardboard.style.display = 'none';
         popcorn.style.display = 'block';
     }
+    // FIM -- FUNÇÕES PARA MOSTRAR SOBRE O AUTOR
 
+    // INFORMAÇÕES AO SELECIONAR O CARD BLACK MIRROR
     function black_mirror(){
         titulo.innerHTML = "Black Mirror, uma série sobre o futuro!";
         paragrafo.innerHTML = `
-        Contos de ficção científica mostrando que nem toda novidade traz só benefícios e as consequências das tecnologias que não estão tão longe de estarem presentes em nossa vida.
-        <br>
-        <span style="color:red">
-            Genero:
-        </span> 
-            
-        Distopia, Suspense, Ficção Científica
-        <br>
-        <span style="color:red">
-            Episódio que recomendo:
-        </span> 
-            <a style="text-decoration:none;color:white" href="https://www.netflix.com/watch/80104627?">
-                QUEDA LIVRE
-            </a><br>
-
-        Este episódio retrata uma realidade onde notas são atribuídas as pessoas de acordo com os comportamentos delas, isto me lembra muito do Instagram, onde as pessoas fingem que são perfeitas, mas a realidade por trás ninguém sabe, este episódio bate muito com meu valor de
-
-        <span style="color:red">
-            RESPEITO E HUMILDADE
-        </span> 
-        
+        Contos de ficção científica mostrando que nem toda novidade traz só benefícios
+        e as consequências das tecnologias que não estão tão longe de estarem presentes
+        em nossa vida.<br>
+            <span style="color:red">Genero:</span>  
+        Distopia, Suspense, Ficção Científica<br>
+            <span style="color:red">Episódio que recomendo:</span> 
+        <a style="text-decoration:none;color:white" href="https://www.netflix.com/watch/80104627?">
+            QUEDA LIVRE
+        </a><br>
+        Este episódio retrata uma realidade onde notas são atribuídas as pessoas de acordo com os 
+        comportamentos delas, isto me lembra muito do Instagram, onde as pessoas fingem que são perfeitas,
+        mas a realidade por trás ninguém sabe, este episódio bate muito com meu valor de
+        <span style="color:lightskyblue;font-weight:500;">RESPEITO E HUMILDADE</span> 
         ja que as pessoas tratam as outras olhando a nota que a pessoa tem. `;
         popcorn.src = "./assets/imgs/Blackmirrorlogo.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
     }
 
+
+    // INFORMAÇÕES AO SELECIONAR O CARD ILHA DO MEDO
     function ilhadomedo(){
         titulo.innerHTML = `Ilha do medo, um filme de suspense com uma grande reviravolta!`;
-        paragrafo.innerHTML = `Detetives são convocados para investigar o improvável desaparecimento de uma criminosa do impenetrável Hospital psiquiátrico Ashecliffe que reside em uma ilha.
-        <br>
-        <span style="color:red">
-            Genero:
-        </span> 
-            
-        Suspense, Mistério, Thriller
-        <br>
-
+        paragrafo.innerHTML = `
+        Detetives são convocados para investigar o improvável desaparecimento de uma criminosa do impenetrável
+        Hospital psiquiátrico Ashecliffe que reside em uma ilha.<br>
+            <span style="color:red">Genero:</span> 
+        Suspense, Mistério, Thriller<br>
         Este filme retrata de um detetive com um passado de vivência em guerra pelo exército,
-        
-        <span style="color:red">
-            VALOR
-        </span> 
+            <span style="color:lightskyblue;font-weight:500;">VALOR</span> 
         `;
         popcorn.src = "./assets/imgs/Ilhadomedo.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
     }
 
+    // BOTÃO (CROSS) PARA VOLTAR AO ESTADO ORIGINAL DA PÁGINA
     function voltar(){
         titulo.innerHTML = `Este site foi criado para quem é amante da sétima arte!`;
         paragrafo.innerHTML = `

@@ -18,7 +18,7 @@
 
 <body>
 
-    <!--header inicio-->
+    <!--Header-->
     <div class="header">
         <div class="container">
             <h1>Danflix</h1>
@@ -29,8 +29,8 @@
                 </ul>
         </div>
     </div>
-    <!--header fim-->
-
+    
+    <!-- Cadastro com o card e formulario -->
     <div class="cadastro">
         <div class="card">
                         <h2>Efetue seu cadastro!</h2>
@@ -61,7 +61,7 @@
                     </div>
     </div>
 
-    <!--footer inicio-->
+    <!--Footer-->
     <div class="footer" style="margin-top: 15vh;">
         <div class="container">
             <a href="https://github.com/danilokovacs">
@@ -70,22 +70,22 @@
             </a>
         </div>
     </div>
-    <!--footer fim-->
-
 
 </body>
 
 </html>
 
 <script>
-
+    // RESETAR FORMULARIO
     function limparFormulario() {
         document.getElementById("form_cadastro").reset();
     }
 
+    // FUNÇÃO PARA CADASTRAR
     function cadastrar() {
         aguardar();
 
+        // TRANSFORMAR OS DADOS OBTIDOS PELO FORMULARIO EM (FormData)
         var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
 
         var nome = formulario.get("nome");
@@ -93,7 +93,7 @@
         var senha = formulario.get("senha");
         var confirmacaoSenha = formulario.get("confirmacao-senha");
 
-        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        // SE NOME OU EMAIL OU SENHA OU CONFIRMAÇÃO ESTIVER VAZIA, ALERTA PARA PREENCHER CAMPOS
         if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
 
             window.alert("Preencha todos os campos para prosseguir!");
@@ -113,25 +113,29 @@
             return false;
         }
 
+        // SE O EMAIL NÃO CONTER @ OU .COM, EMAIL INVÁLIDO
         if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
             finalizarAguardar();
             return false;
         }
 
+        // SE SENHA ESTIVER DIFERENTE DA CONFIRMAÇÃO, ALERTAR
         if (senha != confirmacaoSenha) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");
             finalizarAguardar();
             return false;
         }
 
+        // POST COM O OBJETO FORMULARIO EXPORTADO COMO BODY
         fetch("/usuarios/cadastrar", {
             method: "POST",
             body: formulario
         }).then(function (resposta) {
-
+            // LOG APRESENTANDO RESPOSTA
             console.log("resposta: ", resposta);
 
+            // SE A RESPOSTA OK = TRUE, CADASTRO FINALIZADO!
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
                 window.location = "login.html";
