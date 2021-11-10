@@ -129,10 +129,11 @@ body {
 }
 
 #btn_voltar{
-    width: 40px;
+    width: 3vw;
     /* margin-bottom: 50px; */
     transform: scale(0.9);
     transition-duration: 0.5s;
+    align-self: center;
 }
 
 #btn_voltar:hover{

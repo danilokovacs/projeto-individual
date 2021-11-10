@@ -22,9 +22,11 @@
         <div class="banner">
             <div class="container">
                 <div class="left-container">
-                    <img id="btn_voltar" style="display: none;" onclick="voltar()" src="./assets/cross.png">
                     <h1 id="titulo">Este site foi criado para quem é amante da sétima arte!</h1>
-                    <p id="paragrafo">Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.</p>
+                    <p id="paragrafo">Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, 
+                        isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um 
+                        consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.</p>
+                    <img id="btn_voltar" style="display: none;" onclick="voltar()" src="./assets/cross.png">
                 </div>    
 
                 <div class="right-container">
@@ -123,7 +125,7 @@
         Suspense, Mistério, Thriller
         <br>
 
-        Este filme retrata de um detetive com um passado de guerras,
+        Este filme retrata de um detetive com um passado de vivência em guerra pelo exército,
         
         <span style="color:red">
             VALOR
@@ -135,6 +137,13 @@
     }
 
     function voltar(){
-        window.location = "index.html";
+        titulo.innerHTML = `Este site foi criado para quem é amante da sétima arte!`;
+        paragrafo.innerHTML = `
+        Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo,
+        isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um consumidor
+        como qualquer outro, mas que ama filmes e séries desde muito tempo.`;
+        btn_voltar.style.display = 'none';
+        popcorn.src = "./assets/header/vet_pop.png";
+        popcorn.style.width = "50%";
     }
 </script>
