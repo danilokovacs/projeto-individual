@@ -6,54 +6,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Página Inicial</title>
-
+    <title>Edição de Comentário - Danflix</title>
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/style_base.css">
     <link rel="stylesheet" href="./dashboards.css">
+    <link rel="icon" href="../assets/favicon/favicon.ico">
     <script src="../js/funcoes.js"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body onload="validarSessao(), listarInfosDeUm()" style="background-color: #161618;">
     <!-- <body onload="validarSessao()"> -->
-
-    <div class="janela">
-
-
-        <div class="header-left">
-
-            <h1>AcquaTec</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+        <div class="janela">
+            <div class="header">
+                <div class="container">
+                    <h1>Danflix</h1>
+                    <ul class="navbar">
+                        <li><a class="destaque" href="home.html">Home</a></li>
+                        </ul>
+                        
+                        <div class="hello">
+                            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                        </div>
+                        <ul class="navbar">
+                            <li>
+                                <a onclick="limparSessao()" style="cursor: pointer;">Sair</a>
+                            </li>
+                        </ul>
+                </div>
+            </div>  
         </div>
 
         <div class="dash-right">
@@ -88,7 +68,7 @@
                                 <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             </label>
                             <br>
-                            <button>Editar</button>
+                            <button style="width: 5%;">Editar</button>
                         </form>
                     </div>
 

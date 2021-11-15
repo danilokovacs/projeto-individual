@@ -14,6 +14,15 @@ body {
     border-bottom: 1px solid #e50914;
 }
 
+.janela .header{
+    width: 100%;
+}
+
+.janela .header .navbar{
+    width: 35vw;
+    justify-content: space-between;
+}
+
 .header .container{
     display: flex;
     width: 90%;
@@ -168,6 +177,7 @@ body {
     transform: scale(0.9);
     transition-duration: 0.5s;
     width: 18vw;
+    cursor: pointer;
 }
 
 /* ANIMAÇÃO DOS CARDS */
@@ -197,3 +207,135 @@ body {
     display: flex;
     align-items: center;
 }
+
+/* ESTILIZAÇÃO DE BOTÃO */
+button{
+    cursor: pointer;
+}
+
+/* ESTILIZAÇÃO BOTÃO VOLTAR (TRAILER) */
+#voltar{
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    margin-right: 90%;
+}
+
+/* ESTILIZAÇÃO DE IMG */
+img{
+    cursor: pointer;
+}
+
+/* ESTILIZAÇÃO CARDBOARD INDEX */
+#cardboard{
+    cursor: pointer;
+}
+
+/* SEÇÃO COMENTARIO */
+
+.part_comentario {
+    display: flex;
+    background-color: #161618;
+    justify-content: center;
+  }
+
+  .part_comentario .comentarios {
+    width: 50%;
+    /* border: 3px solid pink; */
+    color: rgb(216, 216, 216);
+    font-family: "Exo 2", sans-serif;
+    padding-left: 5%;
+  }
+  
+  .part_comentario .comentarios .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  
+  .part_comentario .comentarios .container .div-form {
+    width: 100%;
+  }
+  
+  .part_comentario .comentarios .container .div-form #form_postagem {
+    width: 100%;
+  }
+  
+  .part_comentario .comentarios .div-form label {
+    width: 100%;
+  }
+  
+  .part_comentario .comentarios .div-form input {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .part_comentario .comentarios .div-form textarea {
+    width: 100%;
+    /* color: #E6005A; */
+    border: 3px solid #e90514;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .part_comentario .comentarios .div-form button {
+    cursor: pointer;
+    font-family: "Exo 2", sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #e90514;
+    width: 120px;
+  }
+  
+  .publicacao-btn-editar {
+    cursor: pointer;
+    font-family: "Exo 2", sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 8px;
+    color: white;
+    background-color: #e90514;
+    width: 80px;
+  }
+  
+  .publicacao {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    border-bottom: 3px solid #e90514;
+    padding: 20px;
+  }
+  
+  .publicacao > *:not(:last-child) {
+    padding: 0 0 10px 0;
+  }
+  
+  .div-results {
+    width: 100%;
+  }
+  
+  .div-results .feed-container {
+    background-color: #212124;
+    border-radius: 5px;
+    margin-bottom: 80px;
+  }
+  
+  .div-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .div-buttons > * {
+    margin-left: 30px;
+  }
+  
