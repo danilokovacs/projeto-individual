@@ -7,16 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Danflix</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style_base.css">
     <link rel="icon" href="../assets/favicon/favicon.ico">
     <script src="../js/funcoes.js"></script>
 </head>
 
 <body onload="validarSessao(), atualizarFeed()">
 
-    
-    
     <div class="janela">
         <div class="header">
             <div class="container">
@@ -42,21 +40,21 @@
         <!-- ÁREA DOS TRAILERS -->
         <div id="trailer" style="display: none;height:100vh;background-color: black;padding: 2%;">
             <button id="voltar" onclick="voltar()">X</button>
-            <iframe width="50%" height="50%" src="https://www.youtube.com/embed/JG301LECC_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="box_video" width="50%" height="50%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
      <!-- Caixas com as imagens e funções -->
      <div class="boxes">
         <div class="container">
-            <img onclick="black_mirror()" src="../assets/cards/black_mirror.jpg" alt="Black Mirror">
-            <img onclick="ilhadomedo()" src="../assets/cards/ilhadomedo.webp" alt="Ilha do Medo">
-            <img onclick="round6()" src="../assets/cards/round6.jpg" alt="Round 6">
-            <img onclick="o_poco()" src="../assets/cards/poço.jpg" alt="O Poço">
-            <img onclick="skins()" src="../assets/cards/skins.jpg" alt="Skins">
-            <img onclick="braking_bad()" src="../assets/cards/breaking_bad.jpg" alt="Breaking Bad">
-            <img onclick="htgawm()" src="../assets/cards/htgawm.jpg" alt="How to Get Away With Murder">
-            <img onclick="efeito_borboleta()" src="../assets/cards/efeito_borboleta.webp" alt="Efeito Borboleta">
-            <img onclick="tres_por_cento()" src="../assets/cards/tresporcento.jpg" alt="3%">
-            <img onclick="rick_morty()" src="../assets/cards/rick_and_morty.webp" alt="Rick And Morty">
+            <img onclick="black_mirror()" src="./assets/cards/black_mirror.jpg" alt="Black Mirror">
+            <img onclick="ilhadomedo()" src="./assets/cards/ilhadomedo.webp" alt="Ilha do Medo">
+            <img onclick="round6()" src="./assets/cards/round6.jpg" alt="Round 6">
+            <img onclick="o_poco()" src="./assets/cards/poço.jpg" alt="O Poço">
+            <img onclick="skins()" src="./assets/cards/skins.jpg" alt="Skins">
+            <img onclick="breaking_bad()" src="./assets/cards/breaking_bad.jpg" alt="Breaking Bad">
+            <img onclick="htgawm()" src="./assets/cards/htgawm.jpg" alt="How to Get Away With Murder">
+            <img onclick="efeito_borboleta()" src="./assets/cards/efeito_borboleta.webp" alt="Efeito Borboleta">
+            <img onclick="tres_por_cento()" src="./assets/cards/tresporcento.jpg" alt="3%">
+            <img onclick="rick_morty()" src="./assets/cards/rick_and_morty.webp" alt="Rick And Morty">
         </div>
     </div>
 
@@ -131,7 +129,7 @@
 
             if (resposta.ok) {
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/home.html";
+                window.location = "/home.html";
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {
@@ -193,7 +191,7 @@
 
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        spanTitulo.innerHTML = `Título: <b style="word-break: break-all;"> ${publicacao.titulo} </b>`;
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = `Comentário:  <b style="word-break: break-all;"> ${publicacao.descricao}</b>`;
                         divPublicacao.className = "publicacao";
@@ -254,11 +252,61 @@
 </script>
 
 <script>
-    function black_mirror(){
+    function display_trailer(){
         trailer.style.display = "block";
         trailer.style.display = "flex";
         trailer.style.justifyContent = "center";
         container.style.display = "none";
+    }
+
+    function black_mirror(){
+        box_video.src = "https://www.youtube.com/embed/JG301LECC_s"
+        display_trailer()
+    }
+
+    function ilhadomedo(){
+        box_video.src = "https://www.youtube.com/embed/y3dalJDGmt0";
+        display_trailer()
+    }
+
+    function round6(){
+        box_video.src = "https://www.youtube.com/embed/1bXuJn77Cfc";
+        display_trailer()
+    }
+
+    function o_poco(){
+        box_video.src = "";
+        display_trailer()
+    }
+
+    function skins(){
+        box_video.src = "";
+        display_trailer()
+    }
+
+    function breaking_bad(){
+        box_video.src = "";
+        display_trailer()
+    }
+
+    function htgawm(){
+        box_video.src = "";
+        display_trailer()
+    }
+
+    function efeito_borboleta(){
+        box_video.src = "";
+        display_trailer()
+    }
+
+    function tres_por_cento(){
+        box_video.src = "";
+        display_trailer()
+    }
+
+    function rick_morty(){
+        box_video.src = "";
+        display_trailer()
     }
 
     function voltar(){
