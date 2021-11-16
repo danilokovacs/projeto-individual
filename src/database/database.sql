@@ -54,7 +54,6 @@ select u.id,
     from usuario as u 
     join comentario as c on u.id = c.fkUsuario;
 
-select * from card;
 
 insert into card values
 (null,'Black Mirror'),
@@ -69,8 +68,7 @@ insert into card values
 (null,'3%'),
 (null,'Rick e Morty');
 
-
-select * from curtidas;
+select * from card;
 
 insert into curtidas values
 (null,1,1), -- ID, FK CARD, FK USUARIO
@@ -79,6 +77,8 @@ insert into curtidas values
 (null,2,1),
 (null,3,1),
 (null,3,2);
+
+select * from curtidas;
 
 -- SELECT MOSTRANDO QUAIS CARDS FORAM CURTIDOS
 select c.*,u.id,u.nome
