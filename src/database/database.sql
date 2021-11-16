@@ -27,9 +27,7 @@ CREATE TABLE curtidas (
     fkCard int,
     fkUsuario int,
     FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
-    FOREIGN KEY (fkCard) REFERENCES card(id),
-    avaliacao int,
-    check (avaliacao = 0 or avaliacao = 1)
+    FOREIGN KEY (fkCard) REFERENCES card(id)
 );
 
 select * from usuario;
@@ -73,31 +71,23 @@ insert into card values
 
 
 select * from curtidas;
--- AVALIAÇÃO = 1 = LIKE 
--- AVALIAÇÃO = 0 = DESLIKE
-insert into curtidas values
-(null,1,1,1), -- ID, FK CARD, FK USUARIO, AVALIACAO
-(null,1,2,0),
-(null,1,3,1),
-(null,2,2,1),
-(null,2,1,1),
-(null,3,1,1);
 
--- SELECT MOSTRANDO QUAIS CARDS FORAM CURTIDOS E A AVALIAÇÃO
-select c.*,u.id,u.nome,curt.avaliacao 
+insert into curtidas values
+(null,1,1), -- ID, FK CARD, FK USUARIO
+(null,1,2),
+(null,1,3),
+(null,2,1),
+(null,3,1),
+(null,3,2);
+
+-- SELECT MOSTRANDO QUAIS CARDS FORAM CURTIDOS
+select c.*,u.id,u.nome
 	from curtidas as curt 
 	join usuario as u on u.id = curt.fkUsuario 
 	join card as c on c.id = curt.fkCard; 
 
 -- SELECT DE QUANTOS LIKES CADA CARD TEVE
 select card.*,
-	sum(avaliacao = 1) as likes 
+	count(curtidas.id) as Likes
     from card join curtidas on fkCard = card.id
-    group by card.nome;
-
--- SELECT DE QUANTOS LIKES E DESLIKES CADA CARD TEVE
-select card.*,sum(avaliacao = 1) as Likes,
-	sum(avaliacao = 0) as Deslikes 
-    from card 
-	join curtidas on fkCard = card.id
-    group by card.nome;
+    group by card.id;
