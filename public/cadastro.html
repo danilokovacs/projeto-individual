@@ -116,6 +116,13 @@
             return false;
         }
 
+        // SE O EMAIL COMEÇAR COM @ OU COM .COM, EMAIL NÃO PODE COMEÇAR COM @
+        if(email.startsWith("@") || email.startsWith(".com")){
+            window.alert("Ops, email não pode começar com @ / .com tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
         // SE SENHA ESTIVER DIFERENTE DA CONFIRMAÇÃO, ALERTAR
         if (senha != confirmacaoSenha) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");

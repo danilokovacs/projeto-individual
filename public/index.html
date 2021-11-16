@@ -28,7 +28,14 @@
                     <h1 id="titulo">Este site foi criado para quem é amante da sétima arte!</h1>
                     <p id="paragrafo">Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, 
                         isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um 
-                        consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.</p>
+                        consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.<br>
+                        <span style="font-size: 20px">
+                            Para aproveitar uma melhor experiência no meu site não se esqueça de se 
+                            <a href="./cadastro.html" style="color: red;text-decoration: none;">Cadastrar</a>
+                            e ter acesso aos trailers, análises e wallpapers exclusivamente
+                            selecionados para você!!
+                        </span>
+                    </p>
                     <img id="btn_voltar" style="display: none;" onclick="voltar()" src="./assets/cross.png">
                 </div>    
 
@@ -58,7 +65,7 @@
                 <img onclick="round6()" src="./assets/cards/round6.jpg" alt="Round 6">
                 <img onclick="o_poco()" src="./assets/cards/poço.jpg" alt="O Poço">
                 <img onclick="skins()" src="./assets/cards/skins.jpg" alt="Skins">
-                <img onclick="braking_bad()" src="./assets/cards/breaking_bad.jpg" alt="Breaking Bad">
+                <img onclick="breaking_bad()" src="./assets/cards/breaking_bad.jpg" alt="Breaking Bad">
                 <img onclick="htgawm()" src="./assets/cards/htgawm.jpg" alt="How to Get Away With Murder">
                 <img onclick="efeito_borboleta()" src="./assets/cards/efeito_borboleta.webp" alt="Efeito Borboleta">
                 <img onclick="tres_por_cento()" src="./assets/cards/tresporcento.jpg" alt="3%">
@@ -106,7 +113,7 @@
         Este episódio retrata uma realidade onde notas são atribuídas as pessoas de acordo com os 
         comportamentos delas, isto me lembra muito do Instagram, onde as pessoas fingem que são perfeitas,
         mas a realidade por trás ninguém sabe, este episódio bate muito com meu valor de
-        <span style="color:lightskyblue;font-weight:500;">RESPEITO E HUMILDADE</span> 
+        <span style="color:lightskyblue;font-weight:500;">RESPEITO</span> 
         ja que as pessoas tratam as outras olhando a nota que a pessoa tem. `;
         popcorn.src = "./assets/imgs/Blackmirrorlogo.jpg";
         popcorn.style.width = "100%";
@@ -139,14 +146,159 @@
 
     // INFORMAÇÕES AO SELECIONAR O CARD ROUND 6
     function round6(){
-        titulo.innerHTML = `Round 6 - Um grande sucesso recente!`;
-        paragrafo.innerHTML = `Um grupo de pessoas passando por dificuldades financeiras aceita um estranho
+        titulo.innerHTML = `Round 6, um grande sucesso recente!`;
+        paragrafo.innerHTML = `
+        Um grupo de pessoas passando por dificuldades financeiras aceita um estranho
         convite para um jogo de sobrevivência. 
         Um prêmio bilionário os aguarda, mas as apostas são altas e mortais.<br>
             <span style="color:red">Genero:</span>
-        
+        Coreano, Suspense, Drama<br>
+        É uma série muito envolvente e mostra que nós precisamos ter mais
+        <span style="color:lightskyblue;font-weight:500;">EMPATIA</span>
+        com outras pessoas, já que o protagonista se aproveita de sua mãe ser inocente e acaba roubando dinheiro dela
+        graças as dívidas que o mesmo tem.
         `;
-        popcorn.src = "./assets/imgs/round_6.jpg";
+        popcorn.src = "./assets/imgs/round_6.jpeg";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    // INFORMAÇÕES AO SELECIONAR O CARD O POÇO
+    function o_poco(){
+        titulo.innerHTML = `O Poço, um filme sobre a sociedade!`;
+        paragrafo.innerHTML = `
+        Em uma prisão onde os detentos são alimentados por uma plataforma descendente,
+        os que estão nos níveis mais altos comem mais do que precisam enquanto os dos andares mais baixos 
+        ficam com as migalhas. Até que um homem decide mudar o sistema.<br>
+            <span style="color:red">Genero:</span>
+        Suspense<br>
+        Este filme vem pra te deixar no fim com um grande questionamento, qual a nossa
+        <span style="color:lightskyblue;font-weight:500;">RESPONSABILIDADE</span>
+        sobre o outro? O que podemos fazer para ajudar alguém que está acima ou abaixo de nós?
+        `;
+        popcorn.src = "./assets/imgs/o_poco.jpg";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    // INFORMAÇÕES AO SELECIONAR O CARD SKINS
+    function skins(){
+        titulo.innerHTML = `Skins, uma série de adolescentes virando adultos!`;
+        paragrafo.innerHTML = `
+        Uma história sobre um grupo de adolescentes que vivem na Inglaterra,
+        durante dois anos acompanha acontecimentos na vida de cada um,
+        envolvendo diversos assuntos.
+        A cada duas temporadas o elenco é substituído por outro com a mesma idade,
+        e com outros assuntos para desenvolver.<br>
+            <span style="color:red">Genero:</span>
+        Drama adolescente, Comédia dramática. <br>
+        Esta série me marcou muito, vi quando estava na mesma idade que os jovens da série,
+        aborda diversos assuntos que precisamos discutir, muitos no princípio da
+        <span style="color:lightskyblue;font-weight:500;">ÉTICA</span>
+        com as pessoas não utilizando a razão para fazer decisões e que nem sempre paramos pra refletir
+        a importância, como transtornos alimentares e de personalidade, gravidez na adolescência etc.
+        `;
+        popcorn.src = "./assets/imgs/skins.jpg";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    // INFORMAÇÕES AO SELECIONAR O CARD BREAKING BAD
+    function breaking_bad(){
+        titulo.innerHTML = `Breaking Bad, uma série marcante!`;
+        paragrafo.innerHTML = `
+        Walter White é um professor de química que trabalha em uma escola secundária no Novo México,
+        para atender as necessidades de sua esposa e filho ele tem que trabalhar duplamente.
+        Após descobrir que está sofrendo de um câncer de pulmão incurável,
+        começa a usar seu conhecimento de química para fazer e vender metanfetamina,
+        assumindo uma nova identidade como Heisenberg.<br>
+            <span style="color:red">Genero:</span>
+        Policial, Drama, Suspense <br>
+        Esta série com certeza irá marcar sua vida, tida como a melhor série de todos os tempos por
+        muitas pessoas e críticos, traz a proposta de alguem que era tido como uma pessoa
+        nem um pouco perigosa pra sociedade, mudando sua
+        <span style="color:lightskyblue;font-weight:500;">ÉTICA</span>
+        de acordo com as ações que são necessitadas durante a trama.
+        `;
+        popcorn.src = "./assets/imgs/breaking_bad.jpg";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    // INFORMAÇÕES AO SELECIONAR O CARD HOW TO GET AWAY WITH MURDER
+    function htgawm(){
+        titulo.innerHTML = `How To Get Away With Murder, uma série sobre crimes, muitos crimes!`;
+        paragrafo.innerHTML = `
+        Annalise Keating é advogada da área criminal e professora de direito em uma universidade 
+        de prestígio da Filadélfia. Ao lado de cinco de seus alunos, ela se envolve tramas de assassinatos
+        enquanto tenta manter intacto seu casamento.<br>
+            <span style="color:red">Genero:</span>
+        Drama, Mistério, Thriller<br>
+        Esta série irá provocar grandes maratonas por parte de quem à assiste, com mistérios puxando
+        de um episódio para outro, o propósito da série é fazer você se questionar sobre seus valores,
+        e se você estivesse na mesma situação dos protagonistas, o que você iria fazer?
+        Traz muitos questionamentos sobre
+        <span style="color:lightskyblue;font-weight:500;">ÉTICA e HONESTIDADE</span>
+        , com muitos crimes sendo solucionados e outros surgindo no meio de tudo isso.
+        `;
+        popcorn.src = "./assets/imgs/htgawm.jpg";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    // INFORMAÇÕES AO SELECIONAR O CARD EFEITO BORBOLETA
+    function efeito_borboleta(){
+        titulo.innerHTML = `TITULO`;
+        paragrafo.innerHTML = `
+        CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO 
+        CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO <br>
+            <span style="color:red">Genero:</span>
+       genero genero genero<br>
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        <span style="color:lightskyblue;font-weight:500;">VALOR</span>
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        `;
+        popcorn.src = "./assets/imgs/efeito_borboleta.jpg";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    // INFORMAÇÕES AO SELECIONAR O CARD 3% (TRES POR CENTO)
+    function tres_por_cento(){
+        titulo.innerHTML = `TITULO`;
+        paragrafo.innerHTML = `
+        CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO 
+        CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO <br>
+            <span style="color:red">Genero:</span>
+       genero genero genero<br>
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        <span style="color:lightskyblue;font-weight:500;">VALOR</span>
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        `;
+        popcorn.src = "./assets/imgs/tres_por_cento.jpg";
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+    }
+
+    // INFORMAÇÕES AO SELECIONAR O CARD RICK E MORTY
+    function rick_morty(){
+        titulo.innerHTML = `TITULO`;
+        paragrafo.innerHTML = `
+        CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO 
+        CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO CONTEXTO <br>
+            <span style="color:red">Genero:</span>
+       genero genero genero<br>
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        <span style="color:lightskyblue;font-weight:500;">VALOR</span>
+        ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
+        `;
+        popcorn.src = "./assets/imgs/rick_and_morty.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
     }

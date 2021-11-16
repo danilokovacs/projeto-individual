@@ -12,7 +12,7 @@ CREATE TABLE usuario (
 CREATE TABLE comentario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
-    descricao VARCHAR(150),
+    descricao VARCHAR(250),
 	fkUsuario INT,
 	FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
 ); 
@@ -28,49 +28,76 @@ CREATE TABLE curtidas (
     fkUsuario int,
     FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
     FOREIGN KEY (fkCard) REFERENCES card(id),
-    gostei int,
-    desgostei int,
-    check (gostei = 0 or gostei = 1),
-    check (desgostei = 0 or desgostei = 1)
+    avaliacao int,
+    check (avaliacao = 0 or avaliacao = 1)
 );
 
 select * from usuario;
 
 insert into usuario values
-(null,'Danilo','danilo@bandtec.com','987654'),
-(null,'Yan','yan@bandtec.com','123456');
+(null,'Vinicius','vinicius@bandtec.com','123456'),
+(null,'Yan','yan@bandtec.com','123456'),
+(null,'Augusto','augusto@bandtec.com','123456'),
+(null,'Danilo','danilo@bandtec.com','123456');
 
 select * from comentario;
 
 insert into comentario values
-(null,'Love, Death e Robots','É uma série muito boa, precisa ser acrescentada no site!!',1);
+(null,'BREAKING BAD > GAME OF THRONES','Breaking bad tem o final bom, já o game of thrones........... Mas enfim, sugiro você fazer uma análise do filme Intestellar!! ',1),
+(null,'BLACK MIRROR','Melhor episódio de todos é o do jogo de terror ( Versão de testes )!!',2),
+(null,'A SEGUNDA MELHOR SÉRIE DO MUNDO: GAMBITO DA RAINHA','A primeira é How I Met Your Mother, porque é bom, só o final que deixa a gente triste...',3);
 
 -- SELECT PARA SABER QUEM COMENTOU
-select u.id,u.nome,c.titulo,c.descricao,c.fkUsuario from usuario as u join comentario as c on u.id = c.fkUsuario;
+select u.id,
+	u.nome,
+    c.titulo,
+    c.descricao,
+    c.fkUsuario 
+    from usuario as u 
+    join comentario as c on u.id = c.fkUsuario;
 
 select * from card;
 
 insert into card values
-(null,'Ilha do Medo');
+(null,'Black Mirror'),
+(null,'Ilha do Medo'),
+(null,'Round 6'),
+(null,'O Poço'),
+(null,'Skins'),
+(null,'Breaking Bad'),
+(null,'How to Get Away With Murder'),
+(null,'Como defender um assassino'),
+(null,'Efeito Borboleta'),
+(null,'3%'),
+(null,'Rick e Morty');
+
 
 select * from curtidas;
-
--- INSERT, AVALIAÇÃO = 1 = LIKE
+-- AVALIAÇÃO = 1 = LIKE 
+-- AVALIAÇÃO = 0 = DESLIKE
 insert into curtidas values
-(null,1,1,1,null),
-(null,1,2,null,1),
-(null,1,1,1,null),
-(null,1,2,1,null);
--- É SÓ FAZER OS INSERTS COM NULL OU ESPECIFICAR O CAMPO AO CLICAR
+(null,1,1,1), -- ID, FK CARD, FK USUARIO, AVALIACAO
+(null,1,2,0),
+(null,1,3,1),
+(null,2,2,1),
+(null,2,1,1),
+(null,3,1,1);
 
 -- SELECT MOSTRANDO QUAIS CARDS FORAM CURTIDOS E A AVALIAÇÃO
-select c.*,u.id,u.nome,curt.* from curtidas as curt 
+select c.*,u.id,u.nome,curt.avaliacao 
+	from curtidas as curt 
 	join usuario as u on u.id = curt.fkUsuario 
-		join card as c on c.id = curt.fkCard; 
+	join card as c on c.id = curt.fkCard; 
 
--- SELECT DE QUANTOS LIKES O CARD TEVE
-select card.*,count(curtidas.gostei) as likes from card join curtidas on fkCard = card.id where curtidas.gostei = 1;
+-- SELECT DE QUANTOS LIKES CADA CARD TEVE
+select card.*,
+	sum(avaliacao = 1) as likes 
+    from card join curtidas on fkCard = card.id
+    group by card.nome;
 
 -- SELECT DE QUANTOS LIKES E DESLIKES CADA CARD TEVE
-select card.*,sum(curtidas.gostei) as Likes,sum(curtidas.desgostei) as Deslikes from card 
-	join curtidas on fkCard = card.id;
+select card.*,sum(avaliacao = 1) as Likes,
+	sum(avaliacao = 0) as Deslikes 
+    from card 
+	join curtidas on fkCard = card.id
+    group by card.nome;

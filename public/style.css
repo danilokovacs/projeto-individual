@@ -236,7 +236,7 @@ img{
 .part_comentario {
     display: flex;
     background-color: #161618;
-    justify-content: center;
+    /* justify-content: center; */
   }
 
   .part_comentario .comentarios {
@@ -269,6 +269,7 @@ img{
   .part_comentario .comentarios .div-form input {
     width: 100%;
     border-radius: 5px;
+    font-size: 30px;
   }
   
   .part_comentario .comentarios .div-form textarea {
@@ -277,6 +278,7 @@ img{
     border: 3px solid #e90514;
     background-color: white;
     border-radius: 5px;
+    font-size: 30px;
   }
   
   .part_comentario .comentarios .div-form button {

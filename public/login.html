@@ -101,6 +101,13 @@
             return false;
         }
 
+        // SE O EMAIL COMEÇAR COM @ OU COM .COM, EMAIL NÃO PODE COMEÇAR COM @
+        if(email.startsWith("@") || email.startsWith(".com")){
+            window.alert("Ops, email não pode começar com @ / .com tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
         // POST COM O OBJETO FORMULARIO EXPORTADO COMO BODY
         fetch("/usuarios/autenticar", {
             method: "POST",
