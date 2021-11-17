@@ -25,18 +25,18 @@
         <div class="banner">
             <div class="container">
                 <div class="left-container">
-                    <h1 id="titulo">Este site foi criado para quem é amante da sétima arte!</h1>
+                    <h1 id="titulo">Olá, amante da sétima arte!</h1>
                     <p id="paragrafo">Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, 
                         isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um 
                         consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.<br>
-                        <span style="font-size: 20px">
+                        <span>
                             Para aproveitar uma melhor experiência no meu site não se esqueça de se 
                             <a href="./cadastro.html" style="color: red;text-decoration: none;">Cadastrar</a>
                             e ter acesso aos trailers, análises e wallpapers exclusivamente
                             selecionados para você!!
                         </span>
                     </p>
-                    <img id="btn_voltar" style="display: none;" onclick="voltar()" src="./assets/cross.png">
+                    <span id="btn_voltar" style="display: none;" onclick="voltar()">&times;</span>
                 </div>    
 
                 <div class="right-container">
@@ -59,7 +59,7 @@
         <!-- Caixas com as imagens e funções -->
         <div class="boxes">
             <div class="container">
-                <h1>Minhas recomendações:</h1>
+                <h1>Recomendações para você:</h1>
                 <img onclick="black_mirror()" src="./assets/cards/black_mirror.jpg" alt="Black Mirror">
                 <img onclick="ilhadomedo()" src="./assets/cards/ilhadomedo.webp" alt="Ilha do Medo">
                 <img onclick="round6()" src="./assets/cards/round6.jpg" alt="Round 6">
@@ -118,12 +118,14 @@
         popcorn.src = "./assets/imgs/Blackmirrorlogo.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
 
     // INFORMAÇÕES AO SELECIONAR O CARD ILHA DO MEDO
     function ilhadomedo(){
-        titulo.innerHTML = `Ilha do medo, um filme de suspense com uma grande reviravolta!`;
+        titulo.innerHTML = `Ilha do medo, suspense com uma grande reviravolta!`;
         paragrafo.innerHTML = `
         Detetives são convocados para investigar o improvável desaparecimento de uma criminosa do impenetrável
         Hospital psiquiátrico Ashecliffe que reside em uma ilha.<br>
@@ -142,6 +144,8 @@
         popcorn.src = "./assets/imgs/Ilhadomedo.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD ROUND 6
@@ -161,6 +165,8 @@
         popcorn.src = "./assets/imgs/round_6.jpeg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD O POÇO
@@ -179,6 +185,8 @@
         popcorn.src = "./assets/imgs/o_poco.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD SKINS
@@ -201,6 +209,8 @@
         popcorn.src = "./assets/imgs/skins.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD BREAKING BAD
@@ -223,6 +233,8 @@
         popcorn.src = "./assets/imgs/breaking_bad.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD HOW TO GET AWAY WITH MURDER
@@ -244,6 +256,8 @@
         popcorn.src = "./assets/imgs/htgawm.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD EFEITO BORBOLETA
@@ -263,6 +277,8 @@
         popcorn.src = "./assets/imgs/efeito_borboleta.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD 3% (TRES POR CENTO)
@@ -282,6 +298,8 @@
         popcorn.src = "./assets/imgs/tres_por_cento.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD RICK E MORTY
@@ -301,17 +319,28 @@
         popcorn.src = "./assets/imgs/rick_and_morty.jpg";
         popcorn.style.width = "100%";
         btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
     }
 
     // BOTÃO (CROSS) PARA VOLTAR AO ESTADO ORIGINAL DA PÁGINA
     function voltar(){
-        titulo.innerHTML = `Este site foi criado para quem é amante da sétima arte!`;
+        titulo.innerHTML = `Olá, amante da sétima arte!`;
         paragrafo.innerHTML = `
-        Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo,
-        isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um consumidor
-        como qualquer outro, mas que ama filmes e séries desde muito tempo.`;
+        Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, 
+        isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um 
+        consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.<br>
+        <span>
+        Para aproveitar uma melhor experiência no meu site não se esqueça de se 
+        <a href="./cadastro.html" style="color: red;text-decoration: none;">Cadastrar</a>
+        e ter acesso aos trailers, análises e wallpapers exclusivamente
+        selecionados para você!!
+        </span>
+        `;
         btn_voltar.style.display = 'none';
         popcorn.src = "./assets/header/vet_pop.png";
         popcorn.style.width = "50%";
+        titulo.style.fontSize = '3vw';
+        paragrafo.style.fontSize = '1.5vw';
     }
 </script>

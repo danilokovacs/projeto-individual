@@ -8,7 +8,7 @@ body {
 /* HEADER */
 .header{
     display: flex;
-    height: 60px;
+    height: 6vh;
     /* background-color: yellow; */
     justify-content: center;
     border-bottom: 1px solid #e50914;
@@ -25,13 +25,14 @@ body {
 
 .header .container{
     display: flex;
-    width: 90%;
+    width: 90vw;
     /* background-color: #000; */
     align-items: center; /* alinhar nome do site*/
 }
 
 .header h1{
     color: #e50914;
+    font-size: 2vw;
 }
 
 /* COMEÇO NAVBAR */
@@ -42,6 +43,7 @@ body {
     list-style: none;
     justify-content: space-between;
     align-self: end;
+    font-size: 0.8vw;
 }
 
 .navbar a{
@@ -74,50 +76,51 @@ body {
     border-bottom: 1px solid #e50914;
 }
 .banner .container{
-    height: 100%;
-    width: 95%;
-    margin: auto;
+    display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .banner .left-container{
-    width: 50vw;
+    display: flex;
+    width: 40vw;
     height: 60vh;
     text-align: justify;
-    font-size: 0.8rem;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     float: left;
-    overflow: hidden;
 }
 
 .banner .left-container h1{
     margin: 0;
     text-align: left;
-    /* font-size: 3em; */
     color: #e50914;
+    font-size: 3vw;
 }
 
 
 .banner .left-container p{
-    font-size: 1.4em;
+    font-size: 1.5vw;
+}
+
+.banner .left-container span{
+    font-size: 1.4vw;
+    cursor: pointer;
 }
 
 
 .banner .right-container{
-    width: 45%;
-    height: 100%;
-    float: right;
+    width: 45vw;
+    height: 60vh;
     display: flex;
     align-items: center;
-    overflow: hidden;
     justify-content: center;
+    overflow: hidden;
 }
 
 .banner .right-container .card p{
     padding: 15px;
+    font-size: 1.3vw;
 }
 
 #popcorn{
@@ -132,7 +135,7 @@ body {
 
 .banner .card{
     border-radius: 20px;
-    background-color: rgba(24, 24, 24, 0.315);
+    background-color: rgba(24, 24, 24, 0.753);
     transform: scale(0.8);
     transition-duration: 0.5s;
 }
@@ -172,6 +175,10 @@ body {
     margin: auto;
 }
 
+.boxes .container{
+    font-size: 0.8vw;
+}
+
 /* TAMANHO DO CARD */
 .boxes .container img{
     transform: scale(0.9);
@@ -193,12 +200,12 @@ body {
     justify-content: center;
     height: 10vh;
     color: white;
+    font-size: 0.9vw;
 }
 
 .footer img{
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
+    width: 1vw;
+    margin: 2px;
 }
 
 .footer a{
