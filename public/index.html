@@ -51,7 +51,7 @@
                         Até começou a cursar Produção Audiovisual na Universidade de São Caetano, mas acabou tendo que trancar o curso com a vinda da pandemia, mas pelo menos acabou se descobrindo na programação com a pesquisa e testes de vocação
                         </p>
                     </div>
-                    <img id="popcorn" onclick="show()" src="./assets/header/vet_pop.png" alt="">
+                    <img id="popcorn" onclick="show()" src="./assets/header/vet_pop.png">
                 </div>
             </div>
         </div>
@@ -97,6 +97,14 @@
     }
     // FIM -- FUNÇÕES PARA MOSTRAR SOBRE O AUTOR
 
+    // FUNÇÃO PADRÃO DE TAMANHOS AO MUDAR A IMAGEM
+    function change_img(){
+        popcorn.style.width = "100%";
+        btn_voltar.style.display = 'block';
+        titulo.style.fontSize = '1.8vw';
+        paragrafo.style.fontSize = '1vw';
+    }
+
     // INFORMAÇÕES AO SELECIONAR O CARD BLACK MIRROR
     function black_mirror(){
         titulo.innerHTML = "Black Mirror, uma série sobre o futuro!";
@@ -113,13 +121,10 @@
         Este episódio retrata uma realidade onde notas são atribuídas as pessoas de acordo com os 
         comportamentos delas, isto me lembra muito do Instagram, onde as pessoas fingem que são perfeitas,
         mas a realidade por trás ninguém sabe, este episódio bate muito com meu valor de
-        <span style="color:lightskyblue;font-weight:500;">RESPEITO</span> 
+        <span class="valores">RESPEITO</span> 
         ja que as pessoas tratam as outras olhando a nota que a pessoa tem. `;
         popcorn.src = "./assets/imgs/Blackmirrorlogo.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
 
@@ -135,17 +140,14 @@
         lidando com um caso que cada vez mais parece estar longe de ser solucionado,
         com cada vez mais mistérios e impecilhos pro detetive lidar.<br>
         Um grande ensinamento que pode se ter com esse filme é do
-            <span style="color:lightskyblue;font-weight:500;">AMOR</span>
+        <span class="valores">AMOR</span>
         entre o protagonista e sua família, ele sente falta,
         não tem como alguem viver sem amor, quando ocorre a falta dele as pessoas podem ficar 
         desorientadas ou até desacreditadas
         da vida.
         `;
         popcorn.src = "./assets/imgs/Ilhadomedo.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD ROUND 6
@@ -158,15 +160,12 @@
             <span style="color:red">Genero:</span>
         Coreano, Suspense, Drama<br>
         É uma série muito envolvente e mostra que nós precisamos ter mais
-        <span style="color:lightskyblue;font-weight:500;">EMPATIA</span>
+        <span class="valores">EMPATIA</span>
         com outras pessoas, já que o protagonista se aproveita de sua mãe ser inocente e acaba roubando dinheiro dela
         graças as dívidas que o mesmo tem.
         `;
         popcorn.src = "./assets/imgs/round_6.jpeg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD O POÇO
@@ -179,14 +178,11 @@
             <span style="color:red">Genero:</span>
         Suspense<br>
         Este filme vem pra te deixar no fim com um grande questionamento, qual a nossa
-        <span style="color:lightskyblue;font-weight:500;">RESPONSABILIDADE</span>
+        <span class="valores">RESPONSABILIDADE</span>
         sobre o outro? O que podemos fazer para ajudar alguém que está acima ou abaixo de nós?
         `;
         popcorn.src = "./assets/imgs/o_poco.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD SKINS
@@ -202,15 +198,12 @@
         Drama adolescente, Comédia dramática. <br>
         Esta série me marcou muito, vi quando estava na mesma idade que os jovens da série,
         aborda diversos assuntos que precisamos discutir, muitos no princípio da
-        <span style="color:lightskyblue;font-weight:500;">ÉTICA</span>
+        <span class="valores">ÉTICA</span>
         com as pessoas não utilizando a razão para fazer decisões e que nem sempre paramos pra refletir
         a importância, como transtornos alimentares e de personalidade, gravidez na adolescência etc.
         `;
         popcorn.src = "./assets/imgs/skins.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD BREAKING BAD
@@ -227,14 +220,11 @@
         Esta série com certeza irá marcar sua vida, tida como a melhor série de todos os tempos por
         muitas pessoas e críticos, traz a proposta de alguem que era tido como uma pessoa
         nem um pouco perigosa pra sociedade, mudando sua
-        <span style="color:lightskyblue;font-weight:500;">ÉTICA</span>
+        <span class="valores">ÉTICA</span>
         de acordo com as ações que são necessitadas durante a trama.
         `;
         popcorn.src = "./assets/imgs/breaking_bad.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD HOW TO GET AWAY WITH MURDER
@@ -250,14 +240,11 @@
         de um episódio para outro, o propósito da série é fazer você se questionar sobre seus valores,
         e se você estivesse na mesma situação dos protagonistas, o que você iria fazer?
         Traz muitos questionamentos sobre
-        <span style="color:lightskyblue;font-weight:500;">ÉTICA e HONESTIDADE</span>
+        <span class="valores">ÉTICA e HONESTIDADE</span>
         , com muitos crimes sendo solucionados e outros surgindo no meio de tudo isso.
         `;
         popcorn.src = "./assets/imgs/htgawm.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD EFEITO BORBOLETA
@@ -271,14 +258,11 @@
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
-        <span style="color:lightskyblue;font-weight:500;">VALOR</span>
+        <span class="valores">VALOR</span>
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         `;
         popcorn.src = "./assets/imgs/efeito_borboleta.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD 3% (TRES POR CENTO)
@@ -292,14 +276,11 @@
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
-        <span style="color:lightskyblue;font-weight:500;">VALOR</span>
+        <span class="valores">VALOR</span>
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         `;
         popcorn.src = "./assets/imgs/tres_por_cento.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // INFORMAÇÕES AO SELECIONAR O CARD RICK E MORTY
@@ -313,14 +294,11 @@
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
-        <span style="color:lightskyblue;font-weight:500;">VALOR</span>
+        <span class="valores">VALOR</span>
         ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE ANALISE 
         `;
         popcorn.src = "./assets/imgs/rick_and_morty.jpg";
-        popcorn.style.width = "100%";
-        btn_voltar.style.display = 'block';
-        titulo.style.fontSize = '1.8vw';
-        paragrafo.style.fontSize = '1vw';
+        change_img()
     }
 
     // BOTÃO (CROSS) PARA VOLTAR AO ESTADO ORIGINAL DA PÁGINA

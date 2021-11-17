@@ -140,6 +140,11 @@ body {
     transition-duration: 0.5s;
 }
 
+.valores{
+    color:rgb(255, 0, 0);
+    font-weight:500;
+}
+
 #btn_voltar{
     width: 3vw;
     /* margin-bottom: 50px; */
