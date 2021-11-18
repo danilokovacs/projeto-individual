@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Danflix</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./css/style_base.css">
-    <link rel="icon" href="../assets/favicon/favicon.ico">
     <script src="../js/funcoes.js"></script>
+    <link rel="icon" href="../assets/favicon/favicon.ico"> 
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_base.css">
 </head>
 
 <body onload="validarSessao(), atualizarFeed()">
-
+    <!-- Header -->
     <div class="janela">
         <div class="header">
             <div class="container">
@@ -37,27 +37,27 @@
             </div>  
         </div>
         
-        <!-- ÁREA DOS TRAILERS -->
-        <div id="trailer" style="display: none;height:100vh;background-color: black;padding: 2%;">
-            <button id="voltar" onclick="voltar()">X</button>
-            <iframe id="box_video" width="50%" height="50%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- Container com background -->
+        <div id="trailer" style="display: block;background-color: black;overflow: hidden;">
+            <img class="bgposter" src="./assets/bg_logged/bg_poster.jpg" alt="Background com artes">
         </div>
      <!-- Caixas com as imagens e funções -->
      <div class="boxes">
         <div class="container">
-            <img onclick="black_mirror()" src="./assets/cards/black_mirror.jpg" alt="Black Mirror">
-            <img onclick="ilhadomedo()" src="./assets/cards/ilhadomedo.webp" alt="Ilha do Medo">
-            <img onclick="round6()" src="./assets/cards/round6.jpg" alt="Round 6">
-            <img onclick="o_poco()" src="./assets/cards/poço.jpg" alt="O Poço">
-            <img onclick="skins()" src="./assets/cards/skins.jpg" alt="Skins">
-            <img onclick="breaking_bad()" src="./assets/cards/breaking_bad.jpg" alt="Breaking Bad">
-            <img onclick="htgawm()" src="./assets/cards/htgawm.jpg" alt="How to Get Away With Murder">
-            <img onclick="efeito_borboleta()" src="./assets/cards/efeito_borboleta.webp" alt="Efeito Borboleta">
-            <img onclick="tres_por_cento()" src="./assets/cards/tresporcento.jpg" alt="3%">
-            <img onclick="rick_morty()" src="./assets/cards/rick_and_morty.webp" alt="Rick And Morty">
+            <img onclick="black_mirror()"       src="./assets/cards/black_mirror.jpg"       alt="Black Mirror">
+            <img onclick="ilhadomedo()"         src="./assets/cards/ilhadomedo.webp"        alt="Ilha do Medo">
+            <img onclick="round6()"             src="./assets/cards/round6.jpg"             alt="Round 6">
+            <img onclick="o_poco()"             src="./assets/cards/poço.jpg"               alt="O Poço">
+            <img onclick="skins()"              src="./assets/cards/skins.jpg"              alt="Skins">
+            <img onclick="breaking_bad()"       src="./assets/cards/breaking_bad.jpg"       alt="Breaking Bad">
+            <img onclick="htgawm()"             src="./assets/cards/htgawm.jpg"             alt="How to Get Away With Murder">
+            <img onclick="efeito_borboleta()"   src="./assets/cards/efeito_borboleta.webp"  alt="Efeito Borboleta">
+            <img onclick="tres_por_cento()"     src="./assets/cards/tresporcento.jpg"       alt="3%">
+            <img onclick="rick_morty()"         src="./assets/cards/rick_and_morty.webp"    alt="Rick And Morty">
         </div>
     </div>
 
+    <!-- Seção de comentários -->
     <div class="part_comentario">
         <div class="comentarios">
             <div class="container">
@@ -73,7 +73,7 @@
                         <label>
                             Comentário (máximo de 250 caracteres):
                             <br>
-                            <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5" style="resize: none;"></textarea>
+                            <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5" style="resize: none;outline: none;"></textarea>
                         </label>
                         <br>
                         <button>Enviar</button>
@@ -86,37 +86,38 @@
                 </div>
             </div>
         </div>
-        <div>
-            <h1>Wallpapers</h1>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <a href="https://github.com/danilokovacs">
+            <h4>Feito por um amante de cinema e aluno da BandTec &copy; 2021</h4>
+            <div id="git"></div>danilo kovacs
+            </a>
         </div>
     </div>
 
 </body>
 </html>
 <script>
-
+    // FUNÇÃO DE RESETAR O FORMULÁRIO
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
 
+    // FUNÇÃO PARA PUBLICAÇÃO
     function publicar() {
+        // VARIÁVEL ID USUARIO RECEBE O ID DO USUÁRIO ARMAZENADO NA SESSÃO
         var idUsuario = sessionStorage.ID_USUARIO;
 
+        // CORPO A SER EXPORTADO PARA O BANCO DE DADOS
         var corpo = {
             titulo: form_postagem.titulo.value,
             descricao: form_postagem.descricao.value
         }
 
+        // POST COM O OBJETO QUE ESTÁ COM OS VALORES DAS INPUTS COMO PROPRIEDADES
         fetch(`/avisos/publicar/${idUsuario}`, {
             method: "post",
             headers: {
@@ -124,9 +125,9 @@
             },
             body: JSON.stringify(corpo)
         }).then(function (resposta) {
-
             console.log("resposta: ", resposta);
-
+            
+            // SE A RESPOSTA FOR OK, EXIBE UM ALERTA E REDIRECIONA O USUÁRIO PARA PÁGINA HOME
             if (resposta.ok) {
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
                 window.location = "/home.html";
@@ -154,10 +155,35 @@
 
     // }
 
-    // function deletar(idAviso) {
-    //     console.log("Criar função de apagar post escolhido - ID" + idAviso);
+    function deletar(idAviso) {
+        console.log("Função de apagar post escolhido - ID" + idAviso);
+        var idUsuario = sessionStorage.ID_USUARIO;
 
-    // }
+        fetch(`/avisos/deletar/${idAviso}/${idUsuario}`, {
+            method: 'DELETE',
+        }).then( function (resposta){
+            if(resposta.ok){
+                console.log(resposta)
+                resposta.json().then(function (resposta){
+                    console.log("Dados recebidos: ", JSON.stringify(resposta))
+                    if(resposta.affectedRows == 0){
+                        window.alert("Falha em deletar comentário")
+                    }else{
+                        window.alert("Comentário deletado com sucesso")
+                        location.reload()
+                    }
+                })
+            }
+        }    
+
+        // MÉTODO SEM VERIFICAÇÃO
+        // fetch(`/avisos/deletar/${idAviso}/${idUsuario}`, {
+        //     method: 'DELETE',
+        // })
+        // .then (res => res.json())
+        // .then(() => location.reload())
+        )
+    }
 
     function atualizarFeed() {
         //aguardar();
@@ -201,21 +227,21 @@
                         divDescricao.className = "publicacao-descricao";
                         
                         // btnEditar.innerHTML = "Editar";
-                        // btnDeletar.innerHTML = "Deletar";
+                        btnDeletar.innerHTML = "Deletar";
                         
-                        // divButtons.className = "div-buttons"
+                        divButtons.className = "div-buttons"
 
                         // btnEditar.className = "publicacao-btn-editar"
                         // btnEditar.id = "btnEditar" + publicacao.idAviso;
                         // btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
 
                         // btnDeletar.className = "publicacao-btn-editar"
-                        // btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
                         
-                        // divPublicacao.appendChild(divButtons);
+                        divPublicacao.appendChild(divButtons);
                         // divButtons.appendChild(btnEditar);
-                        // divButtons.appendChild(btnDeletar);
+                        divButtons.appendChild(btnDeletar);
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
@@ -234,21 +260,6 @@
         });
     }
 
-    function testar() {
-        aguardar();
-
-        var formulario = new URLSearchParams(new FormData(document.getElementById("form_postagem")));
-
-        var divResultado = document.getElementById("div_feed");
-
-        divResultado.appendChild(document.createTextNode(formulario.get("descricao")));
-        divResultado.innerHTML = formulario.get("descricao");
-
-        finalizarAguardar();
-
-        return false;
-    }
-
 </script>
 
 <script>
@@ -261,51 +272,6 @@
 
     function black_mirror(){
         box_video.src = "https://www.youtube.com/embed/JG301LECC_s"
-        display_trailer()
-    }
-
-    function ilhadomedo(){
-        box_video.src = "https://www.youtube.com/embed/y3dalJDGmt0";
-        display_trailer()
-    }
-
-    function round6(){
-        box_video.src = "https://www.youtube.com/embed/1bXuJn77Cfc";
-        display_trailer()
-    }
-
-    function o_poco(){
-        box_video.src = "";
-        display_trailer()
-    }
-
-    function skins(){
-        box_video.src = "";
-        display_trailer()
-    }
-
-    function breaking_bad(){
-        box_video.src = "";
-        display_trailer()
-    }
-
-    function htgawm(){
-        box_video.src = "";
-        display_trailer()
-    }
-
-    function efeito_borboleta(){
-        box_video.src = "";
-        display_trailer()
-    }
-
-    function tres_por_cento(){
-        box_video.src = "";
-        display_trailer()
-    }
-
-    function rick_morty(){
-        box_video.src = "";
         display_trailer()
     }
 

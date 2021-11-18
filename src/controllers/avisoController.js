@@ -93,10 +93,35 @@ function publicar(req, res) {
     }
 }
 
+function deletar(req, res){
+    var idAviso = req.params.idAviso
+    var idUsuario = req.params.idUsuario;
+
+    avisoModel.deletar(idAviso, idUsuario)
+        .then(
+            function(resultado){
+                res.json(resultado);
+                if(resultado.affectedRows == 0){
+                    console.log("FUNÇÃO DE DELETAR NEGADA!")
+                }else{
+                    console.log("Post deletado com sucesso!");
+                }
+            }
+        )
+        .catch(
+            function(erro){
+                console.log(erro);
+                console.log("Houve um erro ao deletar o comentario", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        )
+}
+
 module.exports = {
     testar,
     listar,
     listarPorUsuario,
     pesquisarDescricao,
-    publicar
+    publicar,
+    deletar
 }

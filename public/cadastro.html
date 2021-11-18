@@ -8,7 +8,7 @@
     <title>Cadastrar - Danflix</title>
     <script src="./js/funcoes.js"></script>
     <link rel="icon" href="./assets/favicon/favicon.ico">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style_base.css">
 </head>
 
@@ -33,7 +33,7 @@
                         <div class="formulario">
                             <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                                 Nome:
-                                <input name="nome" type="text" placeholder="Ada Lovelace">
+                                <input name="nome" minlength="4" type="text" placeholder="Ada Lovelace">
                                 <br>
                                 E-mail:
                                 <input name="email" type="text" placeholder="meuemail@provedor.com">
@@ -57,12 +57,12 @@
                     </div>
     </div>
 
-    <!--Footer-->
-    <div class="footer" style="margin-top: 15vh;">
+    <!-- Footer -->
+    <div class="footer">
         <div class="container">
             <a href="https://github.com/danilokovacs">
-                <h4>Feito por um amante de cinema e aluno da BandTec &copy; 2021</h4>
-                <img src="./assets/footer/github.png" alt="Github">danilokovacs
+            <h4>Feito por um amante de cinema e aluno da BandTec &copy; 2021</h4>
+            <div id="git"></div>danilo kovacs
             </a>
         </div>
     </div>

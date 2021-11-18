@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Danflix</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+    <title>Inicio - Danflix</title>
+    <link rel="icon" href="./assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -26,7 +26,8 @@
             <div class="container">
                 <div class="left-container">
                     <h1 id="titulo">Olá, amante da sétima arte!</h1>
-                    <p id="paragrafo">Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, 
+                    <p id="paragrafo">
+                        Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, 
                         isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um 
                         consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.<br>
                         <span>
@@ -60,16 +61,16 @@
         <div class="boxes">
             <div class="container">
                 <h1>Recomendações para você:</h1>
-                <img onclick="black_mirror()" src="./assets/cards/black_mirror.jpg" alt="Black Mirror">
-                <img onclick="ilhadomedo()" src="./assets/cards/ilhadomedo.webp" alt="Ilha do Medo">
-                <img onclick="round6()" src="./assets/cards/round6.jpg" alt="Round 6">
-                <img onclick="o_poco()" src="./assets/cards/poço.jpg" alt="O Poço">
-                <img onclick="skins()" src="./assets/cards/skins.jpg" alt="Skins">
-                <img onclick="breaking_bad()" src="./assets/cards/breaking_bad.jpg" alt="Breaking Bad">
-                <img onclick="htgawm()" src="./assets/cards/htgawm.jpg" alt="How to Get Away With Murder">
-                <img onclick="efeito_borboleta()" src="./assets/cards/efeito_borboleta.webp" alt="Efeito Borboleta">
-                <img onclick="tres_por_cento()" src="./assets/cards/tresporcento.jpg" alt="3%">
-                <img onclick="rick_morty()" src="./assets/cards/rick_and_morty.webp" alt="Rick And Morty">
+                <img onclick="black_mirror()"       src="./assets/cards/black_mirror.jpg"       alt="Black Mirror">
+                <img onclick="ilhadomedo()"         src="./assets/cards/ilhadomedo.webp"        alt="Ilha do Medo">
+                <img onclick="round6()"             src="./assets/cards/round6.jpg"             alt="Round 6">
+                <img onclick="o_poco()"             src="./assets/cards/poço.jpg"               alt="O Poço">
+                <img onclick="skins()"              src="./assets/cards/skins.jpg"              alt="Skins">
+                <img onclick="breaking_bad()"       src="./assets/cards/breaking_bad.jpg"       alt="Breaking Bad">
+                <img onclick="htgawm()"             src="./assets/cards/htgawm.jpg"             alt="How to Get Away With Murder">
+                <img onclick="efeito_borboleta()"   src="./assets/cards/efeito_borboleta.webp"  alt="Efeito Borboleta">
+                <img onclick="tres_por_cento()"     src="./assets/cards/tresporcento.jpg"       alt="3%">
+                <img onclick="rick_morty()"         src="./assets/cards/rick_and_morty.webp"    alt="Rick And Morty">
             </div>
         </div>
 
@@ -78,7 +79,7 @@
             <div class="container">
                 <a href="https://github.com/danilokovacs">
                 <h4>Feito por um amante de cinema e aluno da BandTec &copy; 2021</h4>
-                    <img src="./assets/footer/github.png" alt="Github">danilokovacs
+                <div id="git"></div>danilo kovacs
                 </a>
             </div>
         </div>
@@ -161,8 +162,8 @@
         Coreano, Suspense, Drama<br>
         É uma série muito envolvente e mostra que nós precisamos ter mais
         <span class="valores">EMPATIA</span>
-        com outras pessoas, já que o protagonista se aproveita de sua mãe ser inocente e acaba roubando dinheiro dela
-        graças as dívidas que o mesmo tem.
+        com outras pessoas, já que o protagonista se aproveita de sua mãe ser inocente e acaba roubando 
+        dinheiro dela graças as dívidas que o mesmo tem.
         `;
         popcorn.src = "./assets/imgs/round_6.jpeg";
         change_img()
@@ -312,15 +313,16 @@
     function voltar(){
         titulo.innerHTML = `Olá, amante da sétima arte!`;
         paragrafo.innerHTML = `
-        Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao redor do mundo, 
-        isso sendo só da Netflix, sem falar em outras plataformas de streaming, este site vem para apresentar as recomendações de um 
-        consumidor como qualquer outro, mas que ama filmes e séries desde muito tempo.<br>
-        <span>
-        Para aproveitar uma melhor experiência no meu site não se esqueça de se 
-        <a href="./cadastro.html" style="color: red;text-decoration: none;">Cadastrar</a>
-        e ter acesso aos trailers, análises e wallpapers exclusivamente
-        selecionados para você!!
-        </span>
+        Sabemos que os filmes e séries estão presentes na vida de mais de 182 milhões de assinantes ao
+        redor do mundo, isso sendo só da Netflix, sem falar em outras plataformas de streaming, este 
+        site vem para apresentar as recomendações de um consumidor como qualquer outro, mas que ama filmes
+        e séries desde muito tempo.<br>
+            <span>
+                Para aproveitar uma melhor experiência no meu site não se esqueça de se 
+                <a href="./cadastro.html" style="color: red;text-decoration: none;">Cadastrar</a>
+                e ter acesso aos trailers, análises e wallpapers exclusivamente
+                selecionados para você!!
+            </span>
         `;
         btn_voltar.style.display = 'none';
         popcorn.src = "./assets/header/vet_pop.png";

@@ -63,9 +63,20 @@ body {
 }
 /* FIM NAVBAR */
 
+/* TELA LOGADA */
+.bgposter{
+    margin-left: 0px;
+    transition: 20s;
+}
+
+.bgposter:hover{
+    transition: 20s;
+    margin-left: -132vw;
+}
+
 /* BANNER */
 .banner{
-    background-image: url(./assets/bg_test.jpg);
+    background-image: url(../assets/bg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -208,16 +219,25 @@ body {
     font-size: 0.9vw;
 }
 
-.footer img{
-    width: 1vw;
-    margin: 2px;
-}
-
 .footer a{
     text-decoration: none;
     color: #ffffff;
     display: flex;
     align-items: center;
+    transition: .6s;
+}
+
+#git{
+    background-image:url(../assets/footer/github.png);
+    background-size: cover;
+    width: 1vw;
+    height: 2vh;
+    margin: 10px;
+}
+
+.footer .container a:hover{
+    transition: .6s;
+    color: #000000;
 }
 
 /* ESTILIZAÇÃO DE BOTÃO */
@@ -248,7 +268,7 @@ img{
 .part_comentario {
     display: flex;
     background-color: #161618;
-    /* justify-content: center; */
+    justify-content: center;
   }
 
   .part_comentario .comentarios {
