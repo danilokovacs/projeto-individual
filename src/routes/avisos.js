@@ -31,4 +31,8 @@ router.put("/editar/:idAviso", function (req, res) {
     avisoController.editar(req, res);
 });
 
+router.post("/gostar/:idCard/:idUsuario", function (req, res) {
+    avisoController.gostar(req, res);
+});
+
 module.exports = router;

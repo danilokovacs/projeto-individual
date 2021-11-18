@@ -79,11 +79,21 @@ function deletar(idAviso, idUsuario) {
     return database.executar(instrucao);
 }
 
+function gostar(idCard, idUsuario){
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function gostar():", idCard, idUsuario );
+    var instrucao = `
+    INSERT INTO curtidas (fkCard, fkUsuario) VALUES (${idCard},${idUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     listar,
     listarPorUsuario,
     pesquisarDescricao,
     publicar,
     editar,
-    deletar
+    deletar,
+    gostar
 }

@@ -97,10 +97,10 @@
             </a>
         </div>
     </div>
-
 </body>
 </html>
 <script>
+    var idImagem = 0;
     // FUNÇÃO DE RESETAR O FORMULÁRIO
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
@@ -174,7 +174,7 @@
                     }
                 })
             }
-        }    
+        })    
 
         // MÉTODO SEM VERIFICAÇÃO
         // fetch(`/avisos/deletar/${idAviso}/${idUsuario}`, {
@@ -182,7 +182,6 @@
         // })
         // .then (res => res.json())
         // .then(() => location.reload())
-        )
     }
 
     function atualizarFeed() {
@@ -260,6 +259,48 @@
         });
     }
 
+    function black_mirror(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 1;
+        gostar();
+    }
+
+    function ilhadomedo(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 2;
+        gostar()
+    }
+
+    function gostar(idCard, idUsuario){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        var idCard = idImagem;
+        // var corpo = {
+        //     idCard: 1,
+        //     idUsuario: 1
+        // }
+
+        fetch(`/avisos/gostar/${idCard}/${idUsuario}`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: null
+        }).then(
+            function (resposta){
+                console.log("resposta: ", resposta);    
+            if(resposta.ok){
+                console.log(resposta)
+                resposta.json().then(function (resposta){
+                    console.log("Dados recebidos: ", JSON.stringify(resposta))
+                })
+            }
+        }) 
+    }
+
+
+
+
+
 </script>
 
 <script>
@@ -270,10 +311,6 @@
         container.style.display = "none";
     }
 
-    function black_mirror(){
-        box_video.src = "https://www.youtube.com/embed/JG301LECC_s"
-        display_trailer()
-    }
 
     function voltar(){
         trailer.style.display = "none";

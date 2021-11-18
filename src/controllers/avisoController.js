@@ -117,11 +117,32 @@ function deletar(req, res){
         )
 }
 
+function gostar(req, res){
+    var idCard = req.params.idCard;
+    var idUsuario = req.params.idUsuario;
+
+    avisoModel.gostar(idCard, idUsuario)
+        .then(
+            function(resultado){
+                res.json(resultado);
+                console.log("Like dado com sucesso");
+            }
+        )
+        .catch(
+            function(erro){
+                console.log(erro);
+                console.log("Houve um erro ao dar like", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        )
+    }
+
 module.exports = {
     testar,
     listar,
     listarPorUsuario,
     pesquisarDescricao,
     publicar,
-    deletar
+    deletar,
+    gostar
 }
