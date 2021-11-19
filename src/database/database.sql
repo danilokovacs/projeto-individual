@@ -62,7 +62,6 @@ insert into card values
 (null,'O Poço'),
 (null,'Skins'),
 (null,'Breaking Bad'),
-(null,'How to Get Away With Murder'),
 (null,'Como defender um assassino'),
 (null,'Efeito Borboleta'),
 (null,'3%'),
@@ -70,13 +69,13 @@ insert into card values
 
 select * from card;
 
-insert into curtidas values
-(null,1,1), -- ID, FK CARD, FK USUARIO
-(null,1,2),
-(null,1,3),
-(null,2,1),
-(null,3,1),
-(null,3,2);
+-- insert into curtidas values
+-- (null,1,1), -- ID, FK CARD, FK USUARIO
+-- (null,1,2),
+-- (null,1,3),
+-- (null,2,1),
+-- (null,3,1),
+-- (null,3,2);
 
 select * from curtidas;
 
@@ -90,4 +89,4 @@ select c.*,u.id,u.nome
 select card.*,
 	count(curtidas.id) as Likes
     from card join curtidas on fkCard = card.id
-    group by card.id;
+	group by card.id order by count(curtidas.id) desc;
