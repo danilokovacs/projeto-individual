@@ -206,21 +206,21 @@
 
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
-
-
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        
+                        // var spanID = document.createElement("span");
+                        // spanID.innerHTML = "Comentário n°: <b>" + publicacao.idAviso + "</b>";
+                        
                         spanTitulo.innerHTML = `Título: <b style="word-break: break-all;"> ${publicacao.titulo} </b>`;
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = `Comentário:  <b style="word-break: break-all;"> ${publicacao.descricao}</b>`;
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        // spanTitulo.id = "inputNumero" + publicacao.idAviso;
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
@@ -238,10 +238,10 @@
                         btnDeletar.id = "btnDeletar" + publicacao.idAviso;
                         btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
                         
-                        divPublicacao.appendChild(divButtons);
                         // divButtons.appendChild(btnEditar);
+                        // divPublicacao.appendChild(spanID);
+                        divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnDeletar);
-                        divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
@@ -271,13 +271,57 @@
         gostar()
     }
 
+    function round6(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 3;
+        gostar()
+    }
+
+    function o_poco(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 4;
+        gostar()
+    }
+
+    function skins(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 5;
+        gostar()
+    }
+
+    function breaking_bad(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 6;
+        gostar()
+    }
+
+    function htgawm(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 7;
+        gostar()
+    }
+
+    function efeito_borboleta(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 8;
+        gostar()
+    }
+
+    function tres_por_cento(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 9;
+        gostar()
+    }
+
+    function rick_morty(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        idImagem = 10;
+        gostar()
+    }
+
     function gostar(idCard, idUsuario){
         var idUsuario = sessionStorage.ID_USUARIO;
         var idCard = idImagem;
-        // var corpo = {
-        //     idCard: 1,
-        //     idUsuario: 1
-        // }
 
         fetch(`/avisos/gostar/${idCard}/${idUsuario}`, {
             method: 'POST',
@@ -291,14 +335,11 @@
             if(resposta.ok){
                 console.log(resposta)
                 resposta.json().then(function (resposta){
-                    console.log("Dados recebidos: ", JSON.stringify(resposta))
+                    console.log("Dados recebidos: ", JSON.stringify(resposta))  
                 })
             }
         }) 
     }
-
-
-
 
 
 </script>
