@@ -37,21 +37,37 @@
         
         <!-- Container com background -->
         <div id="trailer" style="display: block;background-color: black;overflow: hidden;">
+                <!-- Modal para trailers -->
+                <div id="ModalTrailer" class="modal">
+                <!-- Conteúdo do modal -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <iframe id="yt" width="900" height="450" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+                    <div id="modal_info">
+                        <div>
+                            <span id="title"></span>
+                            <p id="paragraph"></p>
+                            <button id="btn_like">Curtir</button>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
             <img class="bgposter" src="./assets/bg_logged/bg_poster.jpg" alt="Background com artes">
         </div>
      <!-- Caixas com as imagens e funções -->
      <div class="boxes">
         <div class="container">
-            <img onclick="black_mirror()"       src="./assets/cards/black_mirror.jpg"       alt="Black Mirror">
-            <img onclick="ilhadomedo()"         src="./assets/cards/ilhadomedo.webp"        alt="Ilha do Medo">
-            <img onclick="round6()"             src="./assets/cards/round6.jpg"             alt="Round 6">
-            <img onclick="o_poco()"             src="./assets/cards/poço.jpg"               alt="O Poço">
-            <img onclick="skins()"              src="./assets/cards/skins.jpg"              alt="Skins">
-            <img onclick="breaking_bad()"       src="./assets/cards/breaking_bad.jpg"       alt="Breaking Bad">
-            <img onclick="htgawm()"             src="./assets/cards/htgawm.jpg"             alt="How to Get Away With Murder">
-            <img onclick="efeito_borboleta()"   src="./assets/cards/efeito_borboleta.webp"  alt="Efeito Borboleta">
-            <img onclick="tres_por_cento()"     src="./assets/cards/tresporcento.jpg"       alt="3%">
-            <img onclick="rick_morty()"         src="./assets/cards/rick_and_morty.webp"    alt="Rick And Morty">
+            <img id="black_mirror"              src="./assets/cards/black_mirror.jpg"       alt="Black Mirror">
+            <img id="ilhadomedo"                src="./assets/cards/ilhadomedo.webp"        alt="Ilha do Medo">
+            <img id="round6"                    src="./assets/cards/round6.jpg"             alt="Round 6">
+            <img id="o_poco"                    src="./assets/cards/poço.jpg"               alt="O Poço">
+            <img id="skins"                     src="./assets/cards/skins.jpg"              alt="Skins">
+            <img id="breaking_bad"              src="./assets/cards/breaking_bad.jpg"       alt="Breaking Bad">
+            <img id="htgawm"                    src="./assets/cards/htgawm.jpg"             alt="How to Get Away With Murder">
+            <img id="efeito_borboleta"          src="./assets/cards/efeito_borboleta.webp"  alt="Efeito Borboleta">
+            <img id="tres_por_cento"            src="./assets/cards/tresporcento.jpg"       alt="3%">
+            <img id="rick_morty"                src="./assets/cards/rick_and_morty.webp"    alt="Rick And Morty">
         </div>
     </div>
 
@@ -98,7 +114,6 @@
 </body>
 </html>
 <script>
-    var idImagem = 0;
     // FUNÇÃO DE RESETAR O FORMULÁRIO
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
@@ -154,8 +169,6 @@
     // }
 
     function gostar(idCard, idUsuario){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        var idCard = idImagem;
 
         fetch(`/comentario/gostar/${idCard}/${idUsuario}`, {
             method: 'POST',
@@ -233,14 +246,10 @@
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
                         
-                        // var spanID = document.createElement("span");
-                        // spanID.innerHTML = "Comentário n°: <b>" + publicacao.idComentario + "</b>";
-                        
                         spanTitulo.innerHTML = `Título: <b style="word-break: break-all;"> ${publicacao.titulo} </b>`;
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = `Comentário:  <b style="word-break: break-all;"> ${publicacao.descricao}</b>`;
                         divPublicacao.className = "publicacao";
-                        // spanTitulo.id = "inputNumero" + publicacao.idComentario;
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
@@ -259,7 +268,6 @@
                         btnDeletar.setAttribute("onclick", `deletar(${publicacao.idComentario})`);
                         
                         // divButtons.appendChild(btnEditar);
-                        // divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnDeletar);
                         divPublicacao.appendChild(spanNome);
@@ -279,80 +287,251 @@
         });
     }
 
-    function black_mirror(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 1;
-        gostar();
-    }
-
-    function ilhadomedo(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 2;
-        gostar()
-    }
-
-    function round6(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 3;
-        gostar()
-    }
-
-    function o_poco(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 4;
-        gostar()
-    }
-
-    function skins(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 5;
-        gostar()
-    }
-
-    function breaking_bad(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 6;
-        gostar()
-    }
-
-    function htgawm(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 7;
-        gostar()
-    }
-
-    function efeito_borboleta(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 8;
-        gostar()
-    }
-
-    function tres_por_cento(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 9;
-        gostar()
-    }
-
-    function rick_morty(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        idImagem = 10;
-        gostar()
-    }
-
 
 </script>
 
 <script>
-    function display_trailer(){
-        trailer.style.display = "block";
-        trailer.style.display = "flex";
-        trailer.style.justifyContent = "center";
-        container.style.display = "none";
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    // REQUISIÇÃO DO ELEMENTO PELO ID
+    var modal = document.getElementById("ModalTrailer");
+
+    // SPAN QUE FECHA O MODAL
+    var span = document.getElementsByClassName("close")[0];
+
+    // VARIAVEL PARA PEGAR O ID DO CARD CLICADO E ATRIBUIR UM ONCLICK COM FUNÇÃO
+    var bm = document.getElementById("black_mirror");
+    bm.onclick = function() {
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/JG301LECC_s";
+    title.innerHTML = "Black Mirror, uma série sobre o futuro!";
+    paragraph.innerHTML = `
+    Contos de ficção científica mostrando que nem toda novidade traz só benefícios
+    e as consequências das tecnologias que não estão tão longe de estarem presentes
+    em nossa vida.<br>
+        <span style="color:red">Genero:</span>  
+    Distopia, Suspense, Ficção Científica<br>
+        <span style="color:red">Episódio que recomendo:</span> 
+    <a style="text-decoration:none;color:white" href="https://www.netflix.com/watch/80104627?">
+        QUEDA LIVRE
+    </a><br>
+    Este episódio retrata uma realidade onde notas são atribuídas as pessoas de acordo com os 
+    comportamentos delas, isto me lembra muito do Instagram, onde as pessoas fingem que são perfeitas,
+    mas a realidade por trás ninguém sabe, este episódio bate muito com meu valor de
+    <span class="valores">RESPEITO</span> 
+    ja que as pessoas tratam as outras olhando a nota que a pessoa tem. `;
+    btn_like.onclick = function(){gostar(1,idUsuario)};
+    }
+
+    var im = document.getElementById("ilhadomedo");
+    im.onclick = function() {
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/v8yrZSkKxTA"
+    title.innerHTML = `Ilha do medo, suspense com uma grande reviravolta!`;
+        paragraph.innerHTML = `
+        Detetives são convocados para investigar o improvável desaparecimento de uma criminosa do impenetrável
+        Hospital psiquiátrico Ashecliffe que reside em uma ilha.<br>
+            <span style="color:red">Genero:</span> 
+        Suspense, Mistério, Thriller<br>
+        Este filme retrata de um detetive constantemente atormentado por suas lembranças de guerra, 
+        lidando com um caso que cada vez mais parece estar longe de ser solucionado,
+        com cada vez mais mistérios e impecilhos pro detetive lidar.<br>
+        Um grande ensinamento que pode se ter com esse filme é do
+            <span class="valores">AMOR</span>
+        entre o protagonista e sua família, ele sente falta,
+        não tem como alguem viver sem amor, quando ocorre a falta dele as pessoas podem ficar 
+        desorientadas ou até desacreditadas
+        da vida.
+        `;
+    btn_like.onclick = function(){gostar(2,idUsuario)};
+    } 
+
+    var r6 = document.getElementById("round6");
+    r6.onclick = function(){
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/1bXuJn77Cfc"
+    title.innerHTML = `Round 6, um grande sucesso recente!`;
+        paragraph.innerHTML = `
+        Um grupo de pessoas passando por dificuldades financeiras aceita um estranho
+        convite para um jogo de sobrevivência. 
+        Um prêmio bilionário os aguarda, mas as apostas são altas e mortais.<br>
+            <span style="color:red">Genero:</span>
+        Coreano, Suspense, Drama<br>
+        É uma série muito envolvente e mostra que nós precisamos ter mais
+        <span class="valores">EMPATIA</span>
+        com outras pessoas, já que o protagonista se aproveita de sua mãe ser inocente e acaba roubando 
+        dinheiro dela graças as dívidas que o mesmo tem.
+        `;
+    btn_like.onclick = function(){gostar(3,idUsuario)};   
     }
 
 
-    function voltar(){
-        trailer.style.display = "none";
-        container.style.display = "block";
+    var poco = document.getElementById("o_poco");
+    poco.onclick = function(){
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/7CxKksqGrbI"
+    title.innerHTML = `O Poço, um filme sobre a sociedade!`;
+        paragraph.innerHTML = `
+        Em uma prisão onde os detentos são alimentados por uma plataforma descendente,
+        os que estão nos níveis mais altos comem mais do que precisam enquanto os dos andares mais baixos 
+        ficam com as migalhas. Até que um homem decide mudar o sistema.<br>
+            <span style="color:red">Genero:</span>
+        Suspense<br>
+        Este filme vem pra te deixar no fim com um grande questionamento, qual a nossa
+        <span class="valores">RESPONSABILIDADE</span>
+        sobre o outro? O que podemos fazer para ajudar alguém que está acima ou abaixo de nós?
+        `;
+    btn_like.onclick = function(){gostar(4,idUsuario)};
     }
+
+
+    var sk = document.getElementById("skins");
+    sk.onclick = function(){
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/Hu6qnKjUk34"
+    title.innerHTML = `Skins, uma série de adolescentes virando adultos!`;
+        paragraph.innerHTML = `
+        Uma história sobre um grupo de adolescentes que vivem na Inglaterra,
+        durante dois anos acompanha acontecimentos na vida de cada um,
+        envolvendo diversos assuntos.
+        A cada duas temporadas o elenco é substituído por outro com a mesma idade,
+        e com outros assuntos para desenvolver.<br>
+            <span style="color:red">Genero:</span>
+        Drama adolescente, Comédia dramática. <br>
+        Esta série me marcou muito, vi quando estava na mesma idade que os jovens da série,
+        aborda diversos assuntos que precisamos discutir, muitos no princípio da
+        <span class="valores">ÉTICA</span>
+        com as pessoas não utilizando a razão para fazer decisões e que nem sempre paramos pra refletir
+        a importância, como transtornos alimentares e de personalidade, gravidez na adolescência etc.
+        `;
+    btn_like.onclick = function(){gostar(5,idUsuario)};    
+    }
+
+
+    var bb = document.getElementById("breaking_bad");
+    bb.onclick = function(){
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/HhesaQXLuRY"
+    title.innerHTML = `Breaking Bad, uma série marcante!`;
+        paragraph.innerHTML = `
+        Walter White é um professor de química que trabalha em uma escola secundária no Novo México,
+        para atender as necessidades de sua esposa e filho ele tem que trabalhar duplamente.
+        Após descobrir que está sofrendo de um câncer de pulmão incurável,
+        começa a usar seu conhecimento de química para fazer e vender metanfetamina,
+        assumindo uma nova identidade como Heisenberg.<br>
+            <span style="color:red">Genero:</span>
+        Policial, Drama, Suspense <br>
+        Esta série com certeza irá marcar sua vida, tida como a melhor série de todos os tempos por
+        muitas pessoas e críticos, traz a proposta de alguem que era tido como uma pessoa
+        nem um pouco perigosa pra sociedade, mudando sua
+        <span class="valores">ÉTICA</span>
+        de acordo com as ações que são necessitadas durante a trama.
+        `;
+    btn_like.onclick = function(){gostar(6,idUsuario)};    
+    }
+
+
+    var ht = document.getElementById("htgawm");
+    ht.onclick = function(){
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/E-MJsHRYIlY"
+    title.innerHTML = `How To Get Away With Murder, uma série sobre crimes, muitos crimes!`;
+        paragraph.innerHTML = `
+        Annalise Keating é advogada da área criminal e professora de direito em uma universidade 
+        de prestígio da Filadélfia. Ao lado de cinco de seus alunos, ela se envolve tramas de assassinatos
+        enquanto tenta manter intacto seu casamento.<br>
+            <span style="color:red">Genero:</span>
+        Drama, Mistério, Thriller<br>
+        Esta série irá provocar grandes maratonas por parte de quem à assiste, com mistérios puxando
+        de um episódio para outro, o propósito da série é fazer você se questionar sobre seus valores,
+        e se você estivesse na mesma situação dos protagonistas, o que você iria fazer?
+        Traz muitos questionamentos sobre
+        <span class="valores">ÉTICA e HONESTIDADE</span>
+        , com muitos crimes sendo solucionados e outros surgindo no meio de tudo isso.
+        `;
+    btn_like.onclick = function(){gostar(7,idUsuario)};     
+    }
+
+
+    var eb = document.getElementById("efeito_borboleta");
+    eb.onclick = function(){
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/Zn9FvJA4l5Q"
+    title.innerHTML = `Efeito Borboleta, um filme sobre viajar no tempo!`;
+        paragraph.innerHTML = `
+        Ashton Kutcher interpreta um jovem que luta para esquecer fatos de sua infância.
+        Fazendo uma regressão ao seu passado fisicamente como criança, ele acaba por ter
+        condições de alterar o que já ocorreu. Porém, ao tentar consertar seus antigos problemas 
+        ele termina por criar novos, já que toda mudança que realiza gera consequências em seu futuro.<br>
+            <span style="color:red">Genero:</span>
+        Suspense, Drama, Ficção científica genero<br>
+        Este filme traz grandes questionamentos de como poderíamos agir diferente no passado, mas 
+        com isso há consequências que não sabemos o grau de periculosidade que isto pode oferecer.
+        Em minha visão é importante errar para podermos adquirir experiência sobre o que erramos e 
+        consertarmos para um futuro melhor sempre é necessário ter
+        <span class="valores">RESILIÊNCIA</span>
+        diante das mudanças e se adaptar. 
+        `;
+    btn_like.onclick = function(){gostar(8,idUsuario)};     
+    }
+
+
+    var tpc = document.getElementById("tres_por_cento");
+    tpc.onclick = function(){
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/LR5vVv2RDLw"
+    title.innerHTML = `3%, série brasileira muito bem produzida pela Netflix!`;
+        paragraph.innerHTML = `
+        Em um futuro não muito distante, o planeta é um lugar devastado. Aos 20 anos,
+        todo cidadão recebe a chance de passar por uma rigorosa seleção para ascender
+        ao Maralto, uma região farta de oportunidades. Porém, apenas 3% consegue chegar lá.<br>
+            <span style="color:red">Genero:</span>
+        Ficção Científica, Distopia<br>
+        Esta série me surpreendeu muito com sua proposta, vem para fazer o espectador refletir
+        sobre muitos princípios de nossa sociedade e principalmente a parte de meritocracia, já
+        que apenas 3% das pessoas conseguem ir para o Maralto, será que essa jornada é justa?
+        Princípios debatidos como
+        <span class="valores">HONESTIDADE E ÉTICA</span>
+        são muito recorrentes durante a trama.        
+        `;
+    btn_like.onclick = function(){gostar(9,idUsuario)};
+    
+    }
+
+
+    var rm = document.getElementById("rick_morty");
+    rm.onclick = function(){
+    modal.style.display = "block";
+    yt.src = "https://www.youtube.com/embed/DuYpZeszaM4"
+    title.innerHTML = `Rick e Morty, um desenho que não é para crianças.`;
+        paragraph.innerHTML = `
+        Acompanhe malucas viagens no tempo-espaço e por universos paralelos com Rick, 
+        um cientista com problemas com a bebida, e seu neto Morty, um adolescente 
+        não tão brilhante quanto o avô.<br>
+            <span style="color:red">Genero:</span>
+        Aventura, Comédia, Ficção Científica<br>
+        Essa série vem para satirizar diversos assuntos da cultura pop de uma forma
+        que só assistindo para entender a genialidade por trás das piadas de Rick,
+        embarque nessas aventuras com muito caos e com piadas não tão leves que irão
+        fazer você rir de tão absurdas que são, mas por trás disso, Rick e Morty vem
+        para debater diversos assuntos e nos fazer refletir em como não podemos ficar
+        na mesmice e sempre procurarmos embasamento nos achismos e opiniões que temos.
+        `;
+    btn_like.onclick = function(){gostar(10,idUsuario)};     
+
+    }
+
+    // AO CLICAR NA SPAN ( X ) FECHA O MODAL
+    span.onclick = function() {
+    yt.src= ""
+    modal.style.display = "none";
+    }
+
+    // FUNÇÃO PARA CLICAR FORA DA JANELA DO MODAL E O MODAL FECHAR
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        yt.src= ""
+    }
+}
 </script>

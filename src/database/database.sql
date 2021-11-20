@@ -53,8 +53,6 @@ select u.id,
     c.fkUsuario 
     from usuario as u 
     join comentario as c on u.id = c.fkUsuario;
-    
-
 
 insert into card values
 (null,'Black Mirror'),
@@ -81,13 +79,12 @@ select * from card;
 select * from curtidas;
 
 -- SELECT MOSTRANDO QUAIS CARDS FORAM CURTIDOS
-select c.*,u.id,u.nome
+select c.*,u.id as idUsuario,u.nome
 	from curtidas as curt 
 	join usuario as u on u.id = curt.fkUsuario 
 	join card as c on c.id = curt.fkCard; 
 
 -- SELECT DE QUANTOS LIKES CADA CARD TEVE
-select card.*,
-	count(curtidas.id) as Likes
-    from card join curtidas on fkCard = card.id
-	group by card.id order by count(curtidas.id) desc;
+select card.*, count(fkCard) as likes 
+	from curtidas join card on fkCard = id 
+    group by nome order by count(fkCard) desc;

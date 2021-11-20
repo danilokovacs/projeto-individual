@@ -74,6 +74,61 @@ body {
     margin-left: -132vw;
 }
 
+.modal {
+    display: none;          /* Escondido por padrão */
+    position: fixed;        /* Posição fixa para sobrepor página*/
+    z-index: 1;             /* Dá a flutuação necessária */
+    padding-top: 100px;     /* localização do modal em relação a tela */
+    left: 0;
+    top: 0;
+    width: 100%;                
+    height: 100%;
+    overflow: auto;         /* Se necessário habilita o scroll */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  }
+  
+  /* CONTEUDO DO MODAL */
+  .modal-content {
+    background-color: #000000;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: flex;
+  }
+
+  .modal-content p{
+      color: white;
+      font-size: 1.3vw;
+  }
+
+  #title{
+      color: #e50914;
+      font-size: 2vw;
+  }
+
+  #modal_info{
+      display: flex;
+      width: 100%;
+      padding: 20px;
+  }
+  
+  /* BOTÃO DE FECHAR */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* AO PASSAR O MOUSE ENCIMA OCORRE UMA ANIMAÇÃO */
+  .close:hover,
+  .close:focus {
+    color: rgb(133, 11, 11);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 /* BANNER */
 .banner{
     background-image: url(../assets/bg.jpg);
@@ -147,8 +202,12 @@ body {
 .banner .card{
     border-radius: 20px;
     background-color: rgba(24, 24, 24, 0.753);
-    transform: scale(0.8);
+    transform: scale(0.7);
     transition-duration: 0.5s;
+}
+
+.banner .card:hover{
+    transform: scale(0.8);
 }
 
 .valores{
@@ -179,9 +238,6 @@ body {
     padding: 20px;
 }
 
-.banner .card:hover{
-    transform: scale(0.9);
-}
 
 /* BOXES */
 

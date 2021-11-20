@@ -22,7 +22,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/comentario", comentarioRouter);
-app.use("/medidas", medidasRouter)
+app.use("/medidas", medidasRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do site está rodando: http://localhost:${PORTA} \n
