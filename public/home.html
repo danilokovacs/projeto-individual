@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Danflix</title>
-    <script src="../js/funcoes.js"></script>
+    <script src="./js/funcoes.js"></script>
     <link rel="icon" href="../assets/favicon/favicon.ico"> 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style_base.css">
@@ -20,9 +20,7 @@
             <div class="container">
                 <h1>Danflix</h1>
                 <ul class="navbar">
-                    <!-- <li><a class="destaque" href="home.html">Home</a></li>
-                    <li><a href="mural.html">Comentarios</a></li>
-                    <li><a href="trailers.html">Trailers</a></li> -->
+                    <li><a class="destaque" href="ranking.html">Ranking</a></li>
                 </ul>
                 
                 <div class="hello">
@@ -118,7 +116,7 @@
         }
 
         // POST COM O OBJETO QUE ESTÁ COM OS VALORES DAS INPUTS COMO PROPRIEDADES
-        fetch(`/avisos/publicar/${idUsuario}`, {
+        fetch(`/comentario/publicar/${idUsuario}`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
@@ -134,7 +132,7 @@
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
+                window.alert("Erro em postar comentário!");
             } else {
                 throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
             }
@@ -147,19 +145,41 @@
 
     }
 
-    // function editar(idAviso) {
-    //     sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-    //     console.log("cliquei em editar - " + idAviso);
-    //     window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
+    // function editar(idComentario) {
+    //     sessionStorage.ID_POSTAGEM_EDITANDO = idComentario;
+    //     console.log("cliquei em editar - " + idComentario);
+    //     window.alert("Você será redirecionado à página de edição do aviso de id número: " + idComentario);
     //     window.location = "/dashboard/edicao-aviso.html"
 
     // }
 
-    function deletar(idAviso) {
-        console.log("Função de apagar post escolhido - ID" + idAviso);
+    function gostar(idCard, idUsuario){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        var idCard = idImagem;
+
+        fetch(`/comentario/gostar/${idCard}/${idUsuario}`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: null
+        }).then(
+            function (resposta){
+                console.log("resposta: ", resposta);    
+            if(resposta.ok){
+                console.log(resposta)
+                resposta.json().then(function (resposta){
+                    console.log("Dados recebidos: ", JSON.stringify(resposta))  
+                })
+            }
+        }) 
+    }
+
+    function deletar(idComentario) {
+        console.log("Função de apagar post escolhido - ID" + idComentario);
         var idUsuario = sessionStorage.ID_USUARIO;
 
-        fetch(`/avisos/deletar/${idAviso}/${idUsuario}`, {
+        fetch(`/comentario/deletar/${idComentario}/${idUsuario}`, {
             method: 'DELETE',
         }).then( function (resposta){
             if(resposta.ok){
@@ -167,7 +187,7 @@
                 resposta.json().then(function (resposta){
                     console.log("Dados recebidos: ", JSON.stringify(resposta))
                     if(resposta.affectedRows == 0){
-                        window.alert("Falha em deletar comentário")
+                        window.alert("Você não é o autor do comentário!")
                     }else{
                         window.alert("Comentário deletado com sucesso")
                         location.reload()
@@ -177,7 +197,7 @@
         })    
 
         // MÉTODO SEM VERIFICAÇÃO
-        // fetch(`/avisos/deletar/${idAviso}/${idUsuario}`, {
+        // fetch(`/avisos/deletar/${idComentario}/${idUsuario}`, {
         //     method: 'DELETE',
         // })
         // .then (res => res.json())
@@ -186,7 +206,7 @@
 
     function atualizarFeed() {
         //aguardar();
-        fetch("/avisos/listar").then(function (resposta) {
+        fetch("/comentario/listar").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
@@ -214,13 +234,13 @@
                         var btnDeletar = document.createElement("button");
                         
                         // var spanID = document.createElement("span");
-                        // spanID.innerHTML = "Comentário n°: <b>" + publicacao.idAviso + "</b>";
+                        // spanID.innerHTML = "Comentário n°: <b>" + publicacao.idComentario + "</b>";
                         
                         spanTitulo.innerHTML = `Título: <b style="word-break: break-all;"> ${publicacao.titulo} </b>`;
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = `Comentário:  <b style="word-break: break-all;"> ${publicacao.descricao}</b>`;
                         divPublicacao.className = "publicacao";
-                        // spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        // spanTitulo.id = "inputNumero" + publicacao.idComentario;
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
@@ -231,12 +251,12 @@
                         divButtons.className = "div-buttons"
 
                         // btnEditar.className = "publicacao-btn-editar"
-                        // btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        // btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+                        // btnEditar.id = "btnEditar" + publicacao.idComentario;
+                        // btnEditar.setAttribute("onclick", `editar(${publicacao.idComentario})`);
 
                         // btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+                        btnDeletar.id = "btnDeletar" + publicacao.idComentario;
+                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idComentario})`);
                         
                         // divButtons.appendChild(btnEditar);
                         // divPublicacao.appendChild(spanID);
@@ -317,28 +337,6 @@
         var idUsuario = sessionStorage.ID_USUARIO;
         idImagem = 10;
         gostar()
-    }
-
-    function gostar(idCard, idUsuario){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        var idCard = idImagem;
-
-        fetch(`/avisos/gostar/${idCard}/${idUsuario}`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: null
-        }).then(
-            function (resposta){
-                console.log("resposta: ", resposta);    
-            if(resposta.ok){
-                console.log(resposta)
-                resposta.json().then(function (resposta){
-                    console.log("Dados recebidos: ", JSON.stringify(resposta))  
-                })
-            }
-        }) 
     }
 
 

@@ -23,11 +23,11 @@ nome VARCHAR(50)
 );
 
 CREATE TABLE curtidas (
-	id INT PRIMARY KEY AUTO_INCREMENT,
     fkCard int,
     fkUsuario int,
     FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
-    FOREIGN KEY (fkCard) REFERENCES card(id)
+    FOREIGN KEY (fkCard) REFERENCES card(id),
+    PRIMARY KEY (fkCard,fkUsuario)
 );
 
 select * from usuario;
@@ -53,6 +53,7 @@ select u.id,
     c.fkUsuario 
     from usuario as u 
     join comentario as c on u.id = c.fkUsuario;
+    
 
 
 insert into card values

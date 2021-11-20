@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Danflix</title>
+    <script src="./js/funcoes.js"></script>
+    <link rel="icon" href="../assets/favicon/favicon.ico"> 
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_base.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="validarSessao(),buscarLikes()">
+    <!-- Header -->
+    <div class="janela">
+        <div class="header">
+            <div class="container">
+                <a href="home.html" style="text-decoration: none;">
+                    <h1>Danflix</h1>
+                </a>
+                <ul class="navbar">
+                    <li><a class="destaque" href="ranking.html">Ranking</a></li>
+                </ul>
+                
+                <div class="hello">
+                    <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                </div>
+                <ul class="navbar">
+                    <li>
+                        <a onclick="limparSessao()" style="cursor: pointer;">Sair</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+
+        <div class="graph">
+            <canvas id="canvas_grafico"></canvas>
+        </div>
+
+        <!-- <button onclick="buscarLikes()" style="font-size: 30px;">GRAFICOS</button> -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <a href="https://github.com/danilokovacs">
+            <h4>Feito por um amante de cinema e aluno da BandTec &copy; 2021</h4>
+            <div id="git"></div>danilo kovacs
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function buscarLikes() {
+
+        fetch(`/medidas/likes/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    plotarGrafico(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    function plotarGrafico(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Likes',
+                    borderColor: '#32B9CD',
+                    backgroundColor: '#32b9cd8f',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
+
+        console.log(dados)
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.likes);
+        }
+
+        console.log(JSON.stringify(dados));
+
+        var ctx = document.getElementById('canvas_grafico').getContext('2d');
+        const canvas_grafico = new Chart(ctx, {
+            type: 'bar',
+            data: dados,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    };
+</script>

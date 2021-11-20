@@ -1,12 +1,12 @@
-var avisoModel = require("../models/avisoModel");
+var comentarioModel = require("../models/comentarioModel");
 
 function testar(req, res) {
-    console.log("ENTRAMOS NO avisoController");
-    res.send("ENTRAMOS NO AVISO CONTROLLER");
+    console.log("ENTRAMOS NO comentarioController");
+    res.send("ENTRAMOS NO COMENTARIO CONTROLLER");
 }
 
 function listar(req, res) {
-    avisoModel.listar().then(function (resultado) {
+    comentarioModel.listar().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -22,7 +22,7 @@ function listar(req, res) {
 function listarPorUsuario(req, res) {
     var idUsuario = req.params.idUsuario;
 
-    avisoModel.listarPorUsuario(idUsuario)
+    comentarioModel.listarPorUsuario(idUsuario)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -47,7 +47,7 @@ function listarPorUsuario(req, res) {
 function pesquisarDescricao(req, res) {
     var descricao = req.params.descricao;
 
-    avisoModel.pesquisarDescricao(descricao)
+    comentarioModel.pesquisarDescricao(descricao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -77,7 +77,7 @@ function publicar(req, res) {
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        comentarioModel.publicar(titulo, descricao, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -94,10 +94,10 @@ function publicar(req, res) {
 }
 
 function deletar(req, res){
-    var idAviso = req.params.idAviso
+    var idComentario = req.params.idComentario;
     var idUsuario = req.params.idUsuario;
 
-    avisoModel.deletar(idAviso, idUsuario)
+    comentarioModel.deletar(idComentario, idUsuario)
         .then(
             function(resultado){
                 res.json(resultado);
@@ -121,7 +121,7 @@ function gostar(req, res){
     var idCard = req.params.idCard;
     var idUsuario = req.params.idUsuario;
 
-    avisoModel.gostar(idCard, idUsuario)
+    comentarioModel.gostar(idCard, idUsuario)
         .then(
             function(resultado){
                 res.json(resultado);
