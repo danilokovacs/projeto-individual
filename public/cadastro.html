@@ -135,9 +135,11 @@
             method: "POST",
             body: formulario
         }).then(function (resposta) {
+            if(resposta.status == 403){
+                alert("Usuário já cadastrado")
+            }
             // LOG APRESENTANDO RESPOSTA
             console.log("resposta: ", resposta);
-
             // SE A RESPOSTA OK = TRUE, CADASTRO FINALIZADO!
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
