@@ -81,15 +81,14 @@
 
     function plotarGrafico(resposta) {
         console.log('iniciando plotagem do gráfico...');
-
         var dados = {
             labels: [],
             datasets: [
                 {
                     label: 'Likes',
-                    borderColor: '#32B9CD',
-                    backgroundColor: '#e50914',
-                    fill: true,
+                    borderColor: '#e50914',
+                    backgroundColor: ["rgba(255, 0,0, 0.9)","rgba(255, 0,0, 0.5)","rgba(255, 0, 0, 0.25)"],
+                    fill: false,
                     data: []
                 }
             ]

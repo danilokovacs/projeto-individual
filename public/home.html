@@ -48,8 +48,8 @@
                         <div>
                             <span id="title"></span>
                             <p id="paragraph"></p>
-                            <button id="btn_like">Curtir</button>
-                            <button id="btn_deslike" style="display: none;">Descurtir</button>
+                            <button class="btn" id="btn_like">Curtir</button>
+                            <button class="btn" id="btn_deslike" style="display: none;">Descurtir</button>
                         </div>
                     </div>
                 </div>
@@ -192,6 +192,8 @@
                 console.log(resposta)
                 resposta.json().then(function (resposta){
                     window.alert("Análise curtida com sucesso!")
+                    btn_like.style.display = "none";
+                    btn_deslike.style.display = "block";
                     console.log("Dados recebidos: ", JSON.stringify(resposta))  
                 })
             }
@@ -293,7 +295,7 @@
                         // btnEditar.id = "btnEditar" + publicacao.idComentario;
                         // btnEditar.setAttribute("onclick", `editar(${publicacao.idComentario})`);
 
-                        // btnDeletar.className = "publicacao-btn-editar"
+                        btnDeletar.className = "btn"
                         btnDeletar.id = "btnDeletar" + publicacao.idComentario;
                         btnDeletar.setAttribute("onclick", `deletar(${publicacao.idComentario})`);
                         
