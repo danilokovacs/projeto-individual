@@ -76,7 +76,12 @@ function publicar(req, res) {
         res.status(400).send("A descrição está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
-    } else {
+    } else if (titulo.trim() == ''){
+        res.status(400).send("O título está vazio!");
+    } else if (descricao.trim() == ''){
+        res.status(400).send("A descrição está vazia")
+    }
+    else {
         comentarioModel.publicar(titulo, descricao, idUsuario)
             .then(
                 function (resultado) {

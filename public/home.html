@@ -20,7 +20,8 @@
             <div class="container">
                 <h1>Danflix</h1>
                 <ul class="navbar">
-                    <li><a class="destaque" href="ranking.html">Ranking</a></li>
+                    <li><a href="ranking.html">Ranking</a></li>
+                    <li><a href="download.html">Download</a></li>
                 </ul>
                 
                 <div class="hello">
@@ -148,7 +149,9 @@
                 finalizarAguardar();
             } else if (resposta.status == 404) {
                 window.alert("Erro em postar comentário!");
-            } else {
+            } else if (resposta.status == 400){
+                window.alert("Post em branco ou undefined!")
+            }else {
                 throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
             }
         }).catch(function (resposta) {
@@ -179,9 +182,13 @@
         }).then(
             function (resposta){
                 console.log("resposta: ", resposta);    
+                if(resposta.status == 500){
+                    window.alert("Você ja curtiu esta análise, aperte em Descurtir se quer retirar o Like!")
+                }
             if(resposta.ok){
                 console.log(resposta)
                 resposta.json().then(function (resposta){
+                    window.alert("Análise curtida com sucesso!")
                     console.log("Dados recebidos: ", JSON.stringify(resposta))  
                 })
             }
