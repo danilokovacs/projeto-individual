@@ -19,7 +19,7 @@ body {
 }
 
 .janela .header .navbar{
-    width: 35vw;
+    width: 12vw;
     justify-content: space-between;
 }
 
@@ -262,6 +262,17 @@ body {
 /* ANIMAÇÃO DOS CARDS */
 .boxes .container img:hover{
     transform: scale(1);
+}
+
+/* ÁREA DE DOWNLOAD */
+.boxes a{
+    text-decoration: none;
+    color: #e50914;
+    font-size: 50px;
+}
+
+.boxes li{
+    list-style: none;
 }
 
 /* FOOTER */

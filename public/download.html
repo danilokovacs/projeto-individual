@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - Danflix</title>
+    <script src="./js/funcoes.js"></script>
+    <link rel="icon" href="../assets/favicon/favicon.ico"> 
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_base.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="validarSessao()">
+    <!-- Header -->
+    <div class="janela">
+        <div class="header">
+            <div class="container">
+                <a href="home.html" style="text-decoration: none;">
+                    <h1>Danflix</h1>
+                </a>
+                <ul class="navbar">
+                    <li><a href="ranking.html">Ranking</a></li>
+                    <li><a class="destaque" href="download.html">Download</a></li>
+                </ul>
+                
+                <div class="hello">
+                    <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                </div>
+                <ul class="navbar">
+                    <li>
+                        <a onclick="limparSessao()" style="cursor: pointer;">Sair</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+
+        <div class="boxes">
+            <h1>Área de Download de Wallpapers</h1>
+            <ul>
+                <li><a href="./assets/cards/black_mirror.jpg" download="black_mirror">Black Mirror</a></li>
+                <li><a href="">Ilha do Medo</a></li>
+                <li><a href="">Round 6</a></li>
+                <li><a href="">O Poço</a></li>
+                <li><a href="">Skins</a></li>
+                <li><a href="">Breaking Bad</a></li>
+                <li><a href="">How To Get Away With Murder</a></li>
+                <li><a href="">Efeito Borboleta</a></li>
+                <li><a href="">3%</a></li>
+                <li><a href="">Rick e Morty</a></li>
+            </ul>
+        </div>
+
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <a href="https://github.com/danilokovacs">
+            <h4>Feito por um amante de cinema e aluno da BandTec &copy; 2021</h4>
+            <div id="git"></div>danilo kovacs
+            </a>
+        </div>
+    </div>
+</body>
+</html>
