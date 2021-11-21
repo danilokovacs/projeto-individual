@@ -142,6 +142,27 @@ function gostar(req, res){
         )
     }
 
+function desgostar(req, res){
+    var idCard = req.params.idCard;
+    var idUsuario = req.params.idUsuario;
+
+    comentarioModel.desgostar(idCard, idUsuario)
+        .then(
+            function(resultado){
+                res.json(resultado);
+                console.log("Deslike dado com sucesso");
+            }
+        )
+        .catch(
+            function(erro){
+                console.log(erro);
+                console.log("Houve um erro ao dar deslike", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        )
+
+}
+
 module.exports = {
     testar,
     listar,
@@ -149,5 +170,6 @@ module.exports = {
     pesquisarDescricao,
     publicar,
     deletar,
-    gostar
+    gostar,
+    desgostar
 }

@@ -35,4 +35,8 @@ router.post("/gostar/:idCard/:idUsuario", function (req, res) {
     comentarioController.gostar(req, res);
 });
 
+router.delete("/desgostar/:idCard/:idUsuario", function (req, res){
+    comentarioController.desgostar(req, res);
+});
+
 module.exports = router;

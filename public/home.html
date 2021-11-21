@@ -49,6 +49,7 @@
                             <span id="title"></span>
                             <p id="paragraph"></p>
                             <button id="btn_like">Curtir</button>
+                            <button id="btn_deslike" style="display: none;">Descurtir</button>
                         </div>
                     </div>
                 </div>
@@ -183,7 +184,9 @@
             function (resposta){
                 console.log("resposta: ", resposta);    
                 if(resposta.status == 500){
-                    window.alert("Você ja curtiu esta análise, aperte em Descurtir se quer retirar o Like!")
+                    window.alert("Você ja curtiu esta análise!")
+                    btn_like.style.display = "none";
+                    btn_deslike.style.display = "block";
                 }
             if(resposta.ok){
                 console.log(resposta)
@@ -193,6 +196,26 @@
                 })
             }
         }) 
+    }
+
+    function desgostar(idCard, idUsuario){
+        console.log("Função de deslike:")
+
+        fetch(`/comentario/desgostar/${idCard}/${idUsuario}`, {
+            method: 'DELETE',
+        }).then(function(resposta){
+            if(resposta.ok){
+                console.log(resposta)
+                resposta.json().then(function(resposta){
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    window.alert("Deslike dado com sucesso!")
+                    modal.style.display = "none";
+                    btn_deslike.style.display = "none";
+                    btn_like.style.display = "block";
+                }
+            )}
+        })
+
     }
 
     function deletar(idComentario) {
@@ -328,6 +351,7 @@
     <span class="valores">RESPEITO</span> 
     ja que as pessoas tratam as outras olhando a nota que a pessoa tem. `;
     btn_like.onclick = function(){gostar(1,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(1,idUsuario)};
     }
 
     var im = document.getElementById("ilhadomedo");
@@ -351,6 +375,7 @@
         da vida.
         `;
     btn_like.onclick = function(){gostar(2,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(2,idUsuario)};
     } 
 
     var r6 = document.getElementById("round6");
@@ -369,7 +394,8 @@
         com outras pessoas, já que o protagonista se aproveita de sua mãe ser inocente e acaba roubando 
         dinheiro dela graças as dívidas que o mesmo tem.
         `;
-    btn_like.onclick = function(){gostar(3,idUsuario)};   
+    btn_like.onclick = function(){gostar(3,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(3,idUsuario)};   
     }
 
 
@@ -389,6 +415,7 @@
         sobre o outro? O que podemos fazer para ajudar alguém que está acima ou abaixo de nós?
         `;
     btn_like.onclick = function(){gostar(4,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(4,idUsuario)};
     }
 
 
@@ -411,7 +438,8 @@
         com as pessoas não utilizando a razão para fazer decisões e que nem sempre paramos pra refletir
         a importância, como transtornos alimentares e de personalidade, gravidez na adolescência etc.
         `;
-    btn_like.onclick = function(){gostar(5,idUsuario)};    
+    btn_like.onclick = function(){gostar(5,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(5,idUsuario)};    
     }
 
 
@@ -434,7 +462,8 @@
         <span class="valores">ÉTICA</span>
         de acordo com as ações que são necessitadas durante a trama.
         `;
-    btn_like.onclick = function(){gostar(6,idUsuario)};    
+    btn_like.onclick = function(){gostar(6,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(6,idUsuario)};    
     }
 
 
@@ -456,7 +485,8 @@
         <span class="valores">ÉTICA e HONESTIDADE</span>
         , com muitos crimes sendo solucionados e outros surgindo no meio de tudo isso.
         `;
-    btn_like.onclick = function(){gostar(7,idUsuario)};     
+    btn_like.onclick = function(){gostar(7,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(7,idUsuario)};     
     }
 
 
@@ -479,7 +509,8 @@
         <span class="valores">RESILIÊNCIA</span>
         diante das mudanças e se adaptar. 
         `;
-    btn_like.onclick = function(){gostar(8,idUsuario)};     
+    btn_like.onclick = function(){gostar(8,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(8,idUsuario)};     
     }
 
 
@@ -502,7 +533,7 @@
         são muito recorrentes durante a trama.        
         `;
     btn_like.onclick = function(){gostar(9,idUsuario)};
-    
+    btn_deslike.onclick = function(){desgostar(9,idUsuario)};
     }
 
 
@@ -524,14 +555,16 @@
         para debater diversos assuntos e nos fazer refletir em como não podemos ficar
         na mesmice e sempre procurarmos embasamento nos achismos e opiniões que temos.
         `;
-    btn_like.onclick = function(){gostar(10,idUsuario)};     
-
+    btn_like.onclick = function(){gostar(10,idUsuario)};
+    btn_deslike.onclick = function(){desgostar(10,idUsuario)};     
     }
 
     // AO CLICAR NA SPAN ( X ) FECHA O MODAL
     span.onclick = function() {
     yt.src= ""
     modal.style.display = "none";
+    btn_deslike.style.display = "none";
+    btn_like.style.display = "block";
     }
 
     // FUNÇÃO PARA CLICAR FORA DA JANELA DO MODAL E O MODAL FECHAR
@@ -539,6 +572,8 @@
     if (event.target == modal) {
         modal.style.display = "none";
         yt.src= ""
+        btn_deslike.style.display = "none";
+        btn_like.style.display = "block";
     }
 }
 </script>
