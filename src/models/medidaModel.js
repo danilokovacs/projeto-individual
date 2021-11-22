@@ -7,6 +7,14 @@ function buscarLikes() {
     return database.executar(instrucaoSql);
 }
 
+function verificarLikes() {
+    instrucaoSql = `select * from curtidas`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    buscarLikes
+    buscarLikes,
+    verificarLikes
 }

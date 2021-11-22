@@ -286,20 +286,13 @@
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
                         
-                        // btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
-                        
                         divButtons.className = "div-buttons"
-
-                        // btnEditar.className = "publicacao-btn-editar"
-                        // btnEditar.id = "btnEditar" + publicacao.idComentario;
-                        // btnEditar.setAttribute("onclick", `editar(${publicacao.idComentario})`);
 
                         btnDeletar.className = "btn"
                         btnDeletar.id = "btnDeletar" + publicacao.idComentario;
                         btnDeletar.setAttribute("onclick", `deletar(${publicacao.idComentario})`);
                         
-                        // divButtons.appendChild(btnEditar);
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnDeletar);
                         divPublicacao.appendChild(spanNome);
@@ -354,6 +347,7 @@
     ja que as pessoas tratam as outras olhando a nota que a pessoa tem. `;
     btn_like.onclick = function(){gostar(1,idUsuario)};
     btn_deslike.onclick = function(){desgostar(1,idUsuario)};
+    verificarLikes(1, idUsuario);
     }
 
     var im = document.getElementById("ilhadomedo");
@@ -378,6 +372,7 @@
         `;
     btn_like.onclick = function(){gostar(2,idUsuario)};
     btn_deslike.onclick = function(){desgostar(2,idUsuario)};
+    verificarLikes(2, idUsuario);
     } 
 
     var r6 = document.getElementById("round6");
@@ -397,7 +392,8 @@
         dinheiro dela graças as dívidas que o mesmo tem.
         `;
     btn_like.onclick = function(){gostar(3,idUsuario)};
-    btn_deslike.onclick = function(){desgostar(3,idUsuario)};   
+    btn_deslike.onclick = function(){desgostar(3,idUsuario)};
+    verificarLikes(3, idUsuario);   
     }
 
 
@@ -418,6 +414,7 @@
         `;
     btn_like.onclick = function(){gostar(4,idUsuario)};
     btn_deslike.onclick = function(){desgostar(4,idUsuario)};
+    verificarLikes(4, idUsuario);
     }
 
 
@@ -441,7 +438,8 @@
         a importância, como transtornos alimentares e de personalidade, gravidez na adolescência etc.
         `;
     btn_like.onclick = function(){gostar(5,idUsuario)};
-    btn_deslike.onclick = function(){desgostar(5,idUsuario)};    
+    btn_deslike.onclick = function(){desgostar(5,idUsuario)};
+    verificarLikes(5, idUsuario);
     }
 
 
@@ -465,7 +463,8 @@
         de acordo com as ações que são necessitadas durante a trama.
         `;
     btn_like.onclick = function(){gostar(6,idUsuario)};
-    btn_deslike.onclick = function(){desgostar(6,idUsuario)};    
+    btn_deslike.onclick = function(){desgostar(6,idUsuario)};
+    verificarLikes(6, idUsuario);
     }
 
 
@@ -488,7 +487,8 @@
         , com muitos crimes sendo solucionados e outros surgindo no meio de tudo isso.
         `;
     btn_like.onclick = function(){gostar(7,idUsuario)};
-    btn_deslike.onclick = function(){desgostar(7,idUsuario)};     
+    btn_deslike.onclick = function(){desgostar(7,idUsuario)};
+    verificarLikes(7, idUsuario);     
     }
 
 
@@ -512,7 +512,8 @@
         diante das mudanças e se adaptar. 
         `;
     btn_like.onclick = function(){gostar(8,idUsuario)};
-    btn_deslike.onclick = function(){desgostar(8,idUsuario)};     
+    btn_deslike.onclick = function(){desgostar(8,idUsuario)};
+    verificarLikes(8, idUsuario);
     }
 
 
@@ -536,6 +537,7 @@
         `;
     btn_like.onclick = function(){gostar(9,idUsuario)};
     btn_deslike.onclick = function(){desgostar(9,idUsuario)};
+    verificarLikes(9, idUsuario);
     }
 
 
@@ -558,7 +560,8 @@
         na mesmice e sempre procurarmos embasamento nos achismos e opiniões que temos.
         `;
     btn_like.onclick = function(){gostar(10,idUsuario)};
-    btn_deslike.onclick = function(){desgostar(10,idUsuario)};     
+    btn_deslike.onclick = function(){desgostar(10,idUsuario)};
+    verificarLikes(10, idUsuario);
     }
 
     // AO CLICAR NA SPAN ( X ) FECHA O MODAL
@@ -577,5 +580,27 @@
         btn_deslike.style.display = "none";
         btn_like.style.display = "block";
     }
-}
+    }
+
+    function verificarLikes(idCard, idUsuario){
+        fetch(`/medidas/verificarlikes/`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Likes recebidos: ${JSON.stringify(resposta)}`);
+
+                        for(var i = 0; i < resposta.length; i++){
+                            if(resposta[i].fkCard == idCard && resposta[i].fkUsuario == idUsuario){
+                                btn_like.style.display = "none";
+                                btn_deslike.style.display = "block";
+                            }
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 </script>
