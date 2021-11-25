@@ -123,6 +123,13 @@
             return false;
         }
 
+        // SE O EMAIL TERMINAR COM @ NO FIM, ALERT
+        if(email.endsWith("@")){
+            window.alert("Ops, email não pode terminar com @, preencha o campo corretamente.");
+            finalizarAguardar();
+            return false;
+        }
+
         // SE SENHA ESTIVER DIFERENTE DA CONFIRMAÇÃO, ALERTAR
         if (senha != confirmacaoSenha) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");
