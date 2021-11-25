@@ -164,14 +164,7 @@
 
     }
 
-    // function editar(idComentario) {
-    //     sessionStorage.ID_POSTAGEM_EDITANDO = idComentario;
-    //     console.log("cliquei em editar - " + idComentario);
-    //     window.alert("Você será redirecionado à página de edição do aviso de id número: " + idComentario);
-    //     window.location = "/dashboard/edicao-aviso.html"
-
-    // }
-
+    // FUNÇÃO GOSTAR SERÁ A DE LIKE, FAZENDO UM POST COM O ID DO CARD QUE ELE CURTIU E O ID DO USUARIO QUE CURTIU 
     function gostar(idCard, idUsuario){
 
         fetch(`/comentario/gostar/${idCard}/${idUsuario}`, {
@@ -182,12 +175,15 @@
             body: null
         }).then(
             function (resposta){
-                console.log("resposta: ", resposta);    
-                if(resposta.status == 500){
-                    window.alert("Você ja curtiu esta análise!")
-                    btn_like.style.display = "none";
-                    btn_deslike.style.display = "block";
-                }
+                console.log("resposta: ", resposta);
+                // ANTIGO MODO DE VERIFICAÇÃO DE LIKES
+                // SE A RESPOSTA TRAZER STATUS 500 QUER DIZER QUE O LIKE JA ESTÁ INSERIDO NO BANCO 
+                // if(resposta.status == 500){
+                //    console.log("Você ja curtiu esta análise!")
+                //     btn_like.style.display = "none";
+                //     btn_deslike.style.display = "block";
+                // }
+
             if(resposta.ok){
                 console.log(resposta)
                 resposta.json().then(function (resposta){
@@ -200,6 +196,7 @@
         }) 
     }
 
+    // FUNÇÃO DE DESLIKE, USANDO MÉTODO DELETE, EXPORTANDO PARAMETROS
     function desgostar(idCard, idUsuario){
         console.log("Função de deslike:")
 
@@ -220,6 +217,7 @@
 
     }
 
+    // FUNÇÃO DE DELETAR COMENTÁRIO, COM VERIFICAÇÃO SE ELE É O AUTOR
     function deletar(idComentario) {
         console.log("Função de apagar post escolhido - ID" + idComentario);
         var idUsuario = sessionStorage.ID_USUARIO;
@@ -250,7 +248,6 @@
     }
 
     function atualizarFeed() {
-        //aguardar();
         fetch("/comentario/listar").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -275,7 +272,6 @@
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
-                        var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
                         
                         spanTitulo.innerHTML = `Título: <b style="word-break: break-all;"> ${publicacao.titulo} </b>`;
@@ -582,6 +578,7 @@
     }
     }
 
+    // FUNÇÃO PARA VERIFICAR LIKES COM UM GET COM TODOS OS LIKES E VERIFICANDO SE O ID DO CARD E O ID DO USUARIO BATE COM ALGUM LIKE
     function verificarLikes(idCard, idUsuario){
         fetch(`/medidas/verificarlikes/`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
@@ -600,7 +597,7 @@
                 }
             })
                 .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                    console.error(`Erro na obtenção dos likes: ${error.message}`);
             });
     }
 </script>

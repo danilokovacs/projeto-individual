@@ -27,10 +27,6 @@ router.delete("/deletar/:idComentario/:idUsuario", function (req, res) {
     comentarioController.deletar(req, res);
 });
 
-router.put("/editar/:idComentario", function (req, res) {
-    comentarioController.editar(req, res);
-});
-
 router.post("/gostar/:idCard/:idUsuario", function (req, res) {
     comentarioController.gostar(req, res);
 });

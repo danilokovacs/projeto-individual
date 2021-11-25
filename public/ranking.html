@@ -57,9 +57,10 @@
 </body>
 </html>
 <script>
-
+    // SPAN RECEBERÁ O NOME DO USUÁRIO ARMAZENADO NA SESSÃO
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+    // FUNÇÃO DE BUSCAR LIKES E LEVAR A RESPOSTA DO SELECT AO GRÁFICO
     function buscarLikes() {
 
         fetch(`/medidas/likes/`, { cache: 'no-store' }).then(function (response) {
@@ -98,12 +99,15 @@
 
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
+            // LABELS RECEBE O NOME DOS CARDS
             dados.labels.push(registro.nome);
+            // O VETOR DATA RECEBE OS LIKES
             dados.datasets[0].data.push(registro.likes);
         }
 
         console.log(JSON.stringify(dados));
 
+        // GRÁFICO EM 2 DIMENSÕES
         var ctx = document.getElementById('canvas_grafico').getContext('2d');
         const canvas_grafico = new Chart(ctx, {
             type: 'bar',

@@ -61,15 +61,6 @@ function publicar(titulo, descricao, idUsuario) {
     return database.executar(instrucao);
 }
 
-function editar(novoTitulo, novaDescricao, idComentario) {
-    console.log("ACESSEI O COMENTARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, descricao, idUsuario);
-    var instrucao = `
-        UPDATE comentario SET titulo = ${novoTitulo} , descricao = ${novaDescricao} WHERE id = ${idComentario};
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
 function deletar(idComentario, idUsuario) {
     console.log("ACESSEI O COMENTARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", idComentario, idUsuario );
     var instrucao = `
@@ -89,7 +80,7 @@ function gostar(idCard, idUsuario){
 }
 
 function desgostar(idCard, idUsuario){
-    console.log("ACESSEI O COMENTARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function gostar():", idCard, idUsuario );
+    console.log("ACESSEI O COMENTARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function desgostar():", idCard, idUsuario );
     var instrucao = `
     DELETE FROM curtidas where fkCard = ${idCard} and fkUsuario = ${idUsuario};
     `;
@@ -103,7 +94,6 @@ module.exports = {
     listarPorUsuario,
     pesquisarDescricao,
     publicar,
-    editar,
     deletar,
     gostar,
     desgostar
