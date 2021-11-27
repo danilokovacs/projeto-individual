@@ -88,3 +88,7 @@ select c.*,u.id as idUsuario,u.nome
 select card.*, count(fkCard) as likes 
 	from curtidas join card on fkCard = id 
     group by nome order by count(fkCard) desc;
+    
+-- SELECT ALTERNATIVO PARA LIKES
+select card.*, count(fkCard) as likes 
+	from curtidas join card on fkCard = id group by fkCard order by likes desc;
