@@ -11,7 +11,7 @@
     <link rel="icon" href="../assets/favicon/favicon.ico"> 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style_base.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body onload="validarSessao(),buscarLikes()">
@@ -42,8 +42,6 @@
         <div class="graph">
             <canvas id="canvas_grafico"></canvas>
         </div>
-
-        <!-- <button onclick="buscarLikes()" style="font-size: 30px;">GRAFICOS</button> -->
 
     <!-- Footer -->
     <div class="footer">
@@ -88,7 +86,7 @@
                 {
                     label: 'Likes',
                     borderColor: '#e50914',
-                    backgroundColor: ["rgba(255, 0,0, 0.9)","rgba(255, 0,0, 0.5)","rgba(255, 0, 0, 0.25)"],
+                    backgroundColor: [],
                     fill: false,
                     data: []
                 }
@@ -103,21 +101,34 @@
             dados.labels.push(registro.nome);
             // O VETOR DATA RECEBE OS LIKES
             dados.datasets[0].data.push(registro.likes);
+            dados.datasets[0].backgroundColor.push("rgba(255, 0,0, 0.9)","rgba(255, 0,0, 0.5)","rgba(255, 0, 0, 0.25)")
         }
 
         console.log(JSON.stringify(dados));
 
         // GRÁFICO EM 2 DIMENSÕES
-        var ctx = document.getElementById('canvas_grafico').getContext('2d');
+        var ctx = document.getElementById('canvas_grafico');
         const canvas_grafico = new Chart(ctx, {
             type: 'bar',
             data: dados,
             options: {
                 scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 12,
+                            fontColor: "#FFF",
+                        }
+                    }],
+                    yAxes: [{
+                        display: false,
+                        ticks: {
+                            beginAtZero: true
+                        },
+                    }]
+                },
+                legend: {
+                    display: false
+                },
             }
         });
 
