@@ -28,15 +28,15 @@
     
     <!-- Cadastro com o card e formulario -->
     <div class="cadastro">
-        <div class="card">
+        <div style="height: 88vh;" class="card">
                         <h2>Efetue seu cadastro!</h2>
                         <div class="formulario">
                             <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                                 Nome:
-                                <input name="nome" minlength="4" type="text" placeholder="Ada Lovelace">
+                                <input name="nome" minlength="4" type="text" placeholder="Charlie Brooker">
                                 <br>
                                 E-mail:
-                                <input name="email" type="text" placeholder="meuemail@provedor.com">
+                                <input name="email" type="text" placeholder="email@bandtec.com">
                                 <br>
                                 Senha:
                                 <input name="senha" type="password" placeholder="******">
@@ -48,7 +48,7 @@
                             </form>
                         </div>
                         <div id="div_aguardar" class="loading-div">
-                            <img src="./assets/circle-loading.gif" id="loading-gif" style="display: none;">
+                            <img src="./assets/loading.gif" id="loading-gif">
                         </div>
         
                         <div id="div_erros_login">
@@ -90,20 +90,18 @@
         var confirmacaoSenha = formulario.get("confirmacao-senha");
 
         // SE NOME OU EMAIL OU SENHA OU CONFIRMAÇÃO ESTIVER VAZIA, ALERTA PARA PREENCHER CAMPOS
-        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
-
-            window.alert("Preencha todos os campos para prosseguir!");
-            if (nome == "") {
-                console.log('nome está em branco')
+        if (nome.trim() == "" || email.trim() == "" || senha.trim() == "" || confirmacaoSenha.trim() == "") {
+            if (nome.trim() == "") {
+                alert('Nome está em branco')
             }
-            if (email == "") {
-                console.log('email está em branco')
+            else if (email.trim() == "") {
+                alert('Email está em branco')
             }
-            if (senha == "") {
-                console.log('senha está em branco')
+            else if (senha.trim() == "") {
+                alert('Senha está em branco')
             }
-            if (confirmacaoSenha == "") {
-                console.log('confirmacaoSenha está em branco')
+            else if (confirmacaoSenha.trim() == "") {
+                alert('Confirmação de senha está em branco')
             }
             finalizarAguardar();
             return false;
